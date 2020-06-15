@@ -20,7 +20,7 @@ class Neighboroo extends StatelessWidget {
         accentColor: text_color,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MainScreen()
+      home: MainScreen(),
     );
   }
 }

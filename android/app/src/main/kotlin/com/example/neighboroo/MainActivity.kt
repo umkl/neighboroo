@@ -1,4 +1,4 @@
-package com.example.neighbouro
+package com.example.neighboroo
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity

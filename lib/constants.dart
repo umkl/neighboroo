@@ -9,7 +9,7 @@ const bg_red  = Color(0xFFEF5359);
 
 const text_color = Color(0xFFFFFFFF);
 
-const box_color = Color(0xFFD2D2D2);
+const box_color = Color(0x80D2D2D2);
 
 const outer_padding = 20.0;
 const inner_padding = 10.0;
