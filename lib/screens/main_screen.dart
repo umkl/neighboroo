@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:neighboroo/components/feed.dart';
+import 'package:neighboroo/components/nav.dart';
 import 'package:neighboroo/components/village.dart';
 import 'package:neighboroo/constants.dart';
 import 'package:neighboroo/components/head.dart';
@@ -14,9 +15,6 @@ class MainScreen extends StatelessWidget {
           preferredSize: Size.fromHeight(60.0),
           child: HeadBar(),
         ),
-        bottomNavigationBar: BottomAppBar(
-          child: Text("data"),
-        ),
         body: Column(
           children: <Widget>[
             Row(
@@ -25,16 +23,15 @@ class MainScreen extends StatelessWidget {
               children: <Widget> [
                 Village(imagePath: 'assets/images/nb-village.jpg'),
                 Village(imagePath: 'assets/images/nb-village.jpg'),
+                AddVillage(),
             ]
             ),
-            Column(
-              children: <Widget>[
-                Feed()
-              ]
-            )
+            Feed(),            
           ],
-        ) 
+        ), 
+        bottomNavigationBar: NeighborooNavigation()        
         );
+        
   }
 }
 
