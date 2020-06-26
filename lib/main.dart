@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:neighboroo/constants.dart';
-import 'package:neighboroo/screens/main_screen.dart';
+import 'package:neighboroo/screens/categories/main_screen.dart';
+
+import 'components/nav.dart';
 
 
 void main(){
@@ -20,7 +22,7 @@ class Neighboroo extends StatelessWidget {
         accentColor: text_color,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MainScreen(),
+      home: NavigationWidget(),
     );
   }
 }

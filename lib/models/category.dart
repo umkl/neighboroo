@@ -4,19 +4,21 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class Category extends StatelessWidget {
   String assetName;
-  Category(this.assetName);
+  double padding;
+
+  Category(this.assetName, {this.padding});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.all(5.0),
-      width: 60.0,
-      height: 60.0,
-      color: Colors.green,
-      
-      child: SvgPicture.asset(
-        "assets/icons/chat-light-1.svg",
-        color:Colors.black,
+    
+    
+    return InkWell(
+          child: Container(                  
+        padding: EdgeInsets.all(this.padding != null ? this.padding : 3.0),  
+        child: Image.asset(
+          this.assetName, 
+        ),
+        
       ),
     );
   }

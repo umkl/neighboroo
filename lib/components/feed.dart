@@ -1,7 +1,6 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:neighboroo/constants.dart';
 import 'package:neighboroo/models/feed.dart';
 import 'package:neighboroo/models/user.dart';
