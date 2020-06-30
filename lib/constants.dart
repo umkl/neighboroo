@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:neighboroo/models/Village.dart';
-import 'package:neighboroo/models/feed.dart';
+import 'package:neighboroo/models/Element.dart';
 import 'package:neighboroo/models/User.dart';
 import 'package:neighboroo/screens/categories/chat-screen.dart';
 import 'package:neighboroo/screens/categories/items-screen.dart';

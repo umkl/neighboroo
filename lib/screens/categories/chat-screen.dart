@@ -34,7 +34,7 @@ class NbChatScreen extends StatelessWidget {
           Container(
             padding: EdgeInsets.only(left: 10.0),
             child: Text(
-              "Messages:",
+              "Recents:",
               textAlign: TextAlign.start,
               style: TextStyle(
                 color: text_color,
