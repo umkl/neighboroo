@@ -2,10 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:neighboroo/constants.dart';
 
-class HeadBar extends StatelessWidget {
+class NbHead extends StatelessWidget {
+  Color headcolor;
+  String searchtext;
+  NbHead({this.headcolor, this.searchtext});
+
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      backgroundColor: headcolor,
       elevation: 0,
       title:
           Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
@@ -40,7 +45,7 @@ class HeadBar extends StatelessWidget {
                   enabledBorder: InputBorder.none,
                   focusedBorder: InputBorder.none,
                   
-                  hintText: "search",
+                  hintText: this.searchtext ?? "search",
                   hintStyle: TextStyle(                    
                     color: Colors.white,
                     

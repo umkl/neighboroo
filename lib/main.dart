@@ -1,28 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:neighboroo/Neighboroo.dart';
 import 'package:neighboroo/constants.dart';
-import 'package:neighboroo/screens/categories/main_screen.dart';
-
-import 'components/nav.dart';
-
+import 'package:neighboroo/screens/categories/main-screen.dart';
 
 void main(){
-  runApp(Neighboroo());
+  runApp(//function to compile the whole app and put it on the viewport
+    NeighborooRun()
+    );
 }
 
-class Neighboroo extends StatelessWidget {
+class NeighborooRun extends StatelessWidget {
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) {//build function
     return MaterialApp(
       title: "Neighboroo",
       theme: ThemeData(
-        // we set poppins as our default font
-        textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme),
+        textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme),// we set poppins as our default font
         primaryColor: text_color,
         accentColor: text_color,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: NavigationWidget(),
+      home: Neighboroo(),
     );
   }
 }

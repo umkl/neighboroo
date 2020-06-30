@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import '../constants.dart';
+import '../../constants.dart';
 
 
-class Village extends StatelessWidget {
+class VillageMain extends StatelessWidget {
   String imagePath;
   String name;
   double neighboroos;
   double size;
 
   
-  Village({this.imagePath});
+  VillageMain({this.imagePath});
 
   @override
   Widget build(BuildContext context) {
@@ -80,4 +80,3 @@ class AddVillage extends StatelessWidget {
     );
   }
 }
-

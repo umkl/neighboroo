@@ -1,71 +1,155 @@
 import 'package:flutter/material.dart';
-import 'package:neighboroo/models/category.dart';
-import 'package:neighboroo/screens/categories/chat_screen.dart';
-import 'package:neighboroo/screens/categories/items_screen.dart';
-import 'package:neighboroo/screens/categories/transport_screen.dart';
-import 'package:neighboroo/screens/categories/work_screen.dart';
-import 'package:neighboroo/screens/categories/main_screen.dart';
+import 'package:neighboroo/constants.dart';
+import 'package:neighboroo/models/AssetElement.dart';
+import 'package:neighboroo/screens/categories/chat-screen.dart';
+import 'package:neighboroo/screens/categories/items-screen.dart';
+import 'package:neighboroo/screens/categories/transport-screen.dart';
+import 'package:neighboroo/screens/categories/work-screen.dart';
+import 'package:neighboroo/screens/categories/main-screen.dart';
 
-import '../constants.dart';
-import 'head.dart';
+import '../Neighboroo.dart';
 
-class NavigationWidget extends StatefulWidget {
+class NbNavigation extends StatefulWidget {
+  Color nbcolor;
+  
+  NbNavigation(this.nbcolor);
+
   @override
-  _NavigationWidgetState createState() => _NavigationWidgetState();
+  NavigationWidgetState createState() => NavigationWidgetState(this.nbcolor);
 }
 
-class _NavigationWidgetState extends State<NavigationWidget> {
-  int _selectedIndex = 2;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static List<Widget> _widgetOptions = <Widget>[
-    ChatScreen(),
-    ItemScreen(),
-    MainScreen(),
-    TransportScreen(),
-    WorkScreen(),
-  ];
-  void _onItemTappedd(int index) {
+class NavigationWidgetState extends State<NbNavigation> {
+  Color nbcolor;
+  NavigationWidgetState([this.nbcolor]); 
+
+  static int selectedIndex = 2;
+
+  void onItemTapped(int index) {
+    Neighboroo.currentindex = index;
+    print(index);
     setState(() {
-      _selectedIndex = index;
+      selectedIndex = index;
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: bg_main,
-        appBar: PreferredSize(
-          preferredSize: Size.fromHeight(60.0),
-          child: HeadBar(),
-        ),
-        body: Container(
-          child: _widgetOptions.elementAt(_selectedIndex),
-        ),
-
-        bottomNavigationBar: BottomAppBar(
-          elevation: 0,
+    return BottomAppBar(
+      elevation: 0,
+      color: this.nbcolor ?? Colors.transparent,
+      child: Container(
+        margin: EdgeInsets.all(10.0),
+        height: 65.0,
+        decoration: BoxDecoration(
           color: box_color,
-          child: Container(
-            margin: EdgeInsets.all(10.0),
-            height: 60.0,
-            decoration: BoxDecoration(
-              color: box_color,
-              borderRadius: BorderRadius.all(Radius.circular(7)),
-            ),
-            child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: <Widget>[
-                  InkWell(child: Category('assets/icons/nb-icon-chat-light.png'), onTap: ()=> setState(()=>_selectedIndex = 0)),
-                  InkWell(child: Category('assets/icons/nb-icon-items-light.png'),onTap: ()=> setState(()=>_selectedIndex = 1)),
-                  InkWell(child: Category('assets/icons/nb-icon-home-light.png', padding: 8.0),onTap: ()=> setState(()=>_selectedIndex = 2)),
-                  InkWell(child: Category('assets/icons/nb-icon-transport-light.png'),onTap: ()=> setState(()=>_selectedIndex = 3)),
-                  InkWell(child: Category('assets/icons/nb-icon-work-light.png'),onTap: ()=> setState(()=>_selectedIndex = 4)),
-                ]),
-          ),
-        ));
+          borderRadius: BorderRadius.all(Radius.circular(7)),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              InkWell(
+                  child: AssetElement('assets/icons/nb-icon-chat-light.png'),
+                  onTap: () => {NbChatScreen()}),
+              InkWell(
+                  child: AssetElement('assets/icons/nb-icon-items-light.png'),
+                  onTap: () => setState(() => selectedIndex = 1)),
+              InkWell(
+                  child: AssetElement('assets/icons/nb-icon-home-light.png',
+                      padding: 8.0),
+                  onTap: () => setState(() => selectedIndex = 2)),
+              InkWell(
+                  child:
+                      AssetElement('assets/icons/nb-icon-transport-light.png'),
+                  onTap: () => setState(() => selectedIndex = 3)),
+              InkWell(
+                  child: AssetElement('assets/icons/nb-icon-work-light.png'),
+                  onTap: () => setState(() => selectedIndex = 4)),
+            ]),
+        ),      
+    );
   }
 }
+
+
+
+class NbNavigationElement extends StatelessWidget {
+  int selectedIndex;
+
+  NbNavigationElement(this.selectedIndex);
+  
+  @override
+  Widget build(BuildContext context) {
+    switch(selectedIndex){
+      case 0:
+        break;
+      case 1:
+        break;
+      case 2:
+        break;
+      case 3:
+        break;
+      case 4:
+        break;
+    }
+    
+    return Container(
+      
+    );
+  }
+}
+
+// Scaffold(
+//         backgroundColor: bg,
+//         appBar: PreferredSize(
+//           preferredSize: Size.fromHeight(60.0),
+//           child: NbHead(),
+//         ),
+//         body: Container(
+//           child: _widgetOptions.elementAt(_selectedIndex),
+//         ),
+//         bottomNavigationBar: BottomAppBar(
+//           elevation: 0,
+//           color: Colors.white,
+//           child: Container(
+//             margin: EdgeInsets.all(10.0),
+//             height: 60.0,
+//             decoration: BoxDecoration(
+//               color: box_color,
+//               borderRadius: BorderRadius.all(Radius.circular(7)),
+//             ),
+//             child: Row(
+//                 mainAxisAlignment: MainAxisAlignment.spaceAround,
+//                 children: <Widget>[
+//                   InkWell(
+//                       child: Category('assets/icons/nb-icon-chat-light.png'),
+//                       onTap: () => setState(() => _selectedIndex = 0)),
+//                   InkWell(
+//                       child: Category('assets/icons/nb-icon-items-light.png'),
+//                       onTap: () => setState(() => _selectedIndex = 1)),
+//                   InkWell(
+//                       child: Category('assets/icons/nb-icon-home-light.png',
+//                           padding: 8.0),
+//                       onTap: () => setState(() => _selectedIndex = 2)),
+//                   InkWell(
+//                       child:
+//                           Category('assets/icons/nb-icon-transport-light.png'),
+//                       onTap: () => setState(() => _selectedIndex = 3)),
+//                   InkWell(
+//                       child: Category('assets/icons/nb-icon-work-light.png'),
+//                       onTap: () => setState(() => _selectedIndex = 4)),
+//                 ]),
+//           ),
+//         ));
+
+
+
+
+
+
+
+
+
+
 
 // class NeighborooNavigation extends StatelessWidget {
 //   int index;

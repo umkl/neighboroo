@@ -2,20 +2,24 @@
 
 import 'package:flutter/material.dart';
 import 'package:neighboroo/constants.dart';
+import 'package:neighboroo/models/ActionType.dart';
 import 'package:neighboroo/models/feed.dart';
-import 'package:neighboroo/models/user.dart';
 
 class Feed extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    List<FeedElement> FeedList = [FeedElement(12, user, DateTime.now(), ActionType.message),FeedElement(12, user, DateTime.now(), ActionType.sell)];
-    return Expanded(
-          child: ListView.builder(
-            itemCount: FeedList.length,
-          itemBuilder: (context, i){
-            return FeedList[i];
+    List<FeedElement> FeedList = [FeedElement(12, user, DateTime.parse("2020-06-27 14:47:00"), ActionType.message, message: "Hello, your cat is in our garden"),FeedElement(12, user, DateTime.now(), ActionType.sell)];
+    return Expanded(        
+          child: Container(
+            color: bg,
+            height: MediaQuery.of(context).size.height * 0.5,
+            child: ListView.builder(
+              itemCount: FeedList.length,
+            itemBuilder: (context, i){
+              return FeedList[i];
         },      
       ),
+          ),
     );
   }
 }
