@@ -8,6 +8,7 @@ import 'package:neighboroo/constants.dart';
 
 
 class NbMainScreen extends StatefulWidget {
+  static Feed feed = Feed();
   Color colortheme = bg;
   @override
   _MainScreenState createState() => _MainScreenState();
@@ -44,7 +45,7 @@ class _MainScreenState extends State<NbMainScreen> {
                   )
                ]),
          ),
-         Feed()
+         NbMainScreen.feed
          ],
       );
    }

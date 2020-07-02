@@ -4,12 +4,12 @@ import 'package:neighboroo/components/chat-screen-components/chat-createbar.dart
 import 'package:neighboroo/components/chat-screen-components/chat-recents.dart';
 import 'package:neighboroo/constants.dart';
 
-class NbTransportScreen extends StatelessWidget {
-  Color colortheme = yellow;
+class NbWorkScreen extends StatelessWidget {
+  Color colortheme = blue;
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: colortheme,
+      color: blue,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[

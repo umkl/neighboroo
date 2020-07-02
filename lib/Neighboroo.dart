@@ -33,16 +33,16 @@ class _NeighborooState extends State<Neighboroo> {
           return NbChatScreen().colortheme;
           break;
         case 1:
-          return red;
+          return green;
           break;
         case 2:
           return NbMainScreen().colortheme;
           break;
         case 3:
-          return Colors.green;
+          return yellow;
           break;
         case 4:
-          return red;
+          return blue;
           break;
         default:
       }
@@ -54,16 +54,16 @@ class _NeighborooState extends State<Neighboroo> {
           return "search your contacts";
           break;
         case 1:
-          return "dsaf";
+          return "search for items";
           break;
         case 2:
           return null;
           break;
         case 3:
-          return "dsaf";
+          return "search for drivers";
           break;
         case 4:
-          return "dsaf";
+          return "search for work";
           break;
         default:
       }
@@ -91,10 +91,10 @@ class _NeighborooState extends State<Neighboroo> {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
               InkWell(
-                  child: AssetElement('assets/icons/nb-icon-chat-light.png'),
+                  child: AssetElement('assets/icons/nb-icon-chat-light-1.png'),
                   onTap: () => {onItemTapped(0)}),
               InkWell(
-                  child: AssetElement('assets/icons/nb-icon-items-light.png'),
+                  child: AssetElement('assets/icons/nb-icon-items-1.png'),
                   onTap: () => onItemTapped(1)),
               InkWell(
                   child: AssetElement('assets/icons/nb-icon-home-light.png',
@@ -102,10 +102,10 @@ class _NeighborooState extends State<Neighboroo> {
                   onTap: () => onItemTapped(2)),
               InkWell(
                   child:
-                      AssetElement('assets/icons/nb-icon-transport-light.png'),
+                      AssetElement('assets/icons/nb-icon-transport-1.png'),
                   onTap: () => onItemTapped(3)),
               InkWell(
-                  child: AssetElement('assets/icons/nb-icon-work-light.png'),
+                  child: AssetElement('assets/icons/nb-icon-work-1.png'),
                   onTap: () => onItemTapped(4)),
             ]),
         ),      

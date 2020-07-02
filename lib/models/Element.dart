@@ -9,8 +9,7 @@ class NbElement{
   final double price;
   final String message;
 
-  NbElement(this.id, this.user, this.datetime, this.actionType,
-      {this.price, this.message});
+  NbElement(this.actionType, this.id, this.user, this.datetime, {this.price, this.message});
 }
 
 

@@ -2,10 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:neighboroo/components/chat-screen-components/chat-contacts.dart';
 import 'package:neighboroo/components/chat-screen-components/chat-createbar.dart';
 import 'package:neighboroo/components/chat-screen-components/chat-recents.dart';
-import 'package:neighboroo/constants.dart';
+import 'package:neighboroo/components/head.dart';
+import 'package:neighboroo/components/nav.dart';
+import 'package:neighboroo/models/AssetElement.dart';
 
-class NbTransportScreen extends StatelessWidget {
-  Color colortheme = yellow;
+import '../../constants.dart';
+
+class NbItemScreen extends StatelessWidget {
+  Color colortheme = green;
   @override
   Widget build(BuildContext context) {
     return Container(

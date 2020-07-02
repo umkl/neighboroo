@@ -1,3 +1,3 @@
 enum ActionType{
-  service, sell, transport, message
+  work, sell, transport, message
 }

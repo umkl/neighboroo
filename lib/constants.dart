@@ -3,21 +3,23 @@ import 'package:neighboroo/models/Village.dart';
 import 'package:neighboroo/models/Element.dart';
 import 'package:neighboroo/models/User.dart';
 import 'package:neighboroo/screens/categories/chat-screen.dart';
-import 'package:neighboroo/screens/categories/items-screen.dart';
+import 'package:neighboroo/screens/categories/item-screen.dart';
 import 'package:neighboroo/screens/categories/main-screen.dart';
 import 'package:neighboroo/screens/categories/transport-screen.dart';
-import 'package:neighboroo/screens/categories/work-screen.dart';
+import 'package:neighboroo/screens/categories/service-screen.dart';
 
 //color pallete
-const bg  = Color(0xFFDCDCDC);
+const bg  = Color(0xFFEEEEEE);
 
 const green  = Color(0xFFAACC00);
 const yellow  = Color(0xFFF4D35E);
-const blue  = Color(0x805390D9);
+const blue  = Color(0xFF4A85D0);
 
 //chat colors
 const red  = Color(0xFFEF5359);
 const button_red  = Color(0x80EF5359);
+const button_green  = Color(0xFFAACC00);
+
 // const red  = Color(0xFFEF5359);
 // const red  = Color(0xFFEF5359);
 

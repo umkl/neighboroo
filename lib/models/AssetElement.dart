@@ -8,8 +8,9 @@ class AssetElement extends StatelessWidget {
   double margin;
   double height;
   double width;
+  double size;
 
-  AssetElement(this.assetName, {this.margin,this.padding, this.width, this.height});
+  AssetElement(this.assetName, {this.size,this.margin,this.padding, this.width, this.height});
 
   @override
   Widget build(BuildContext context) {        
@@ -19,8 +20,8 @@ class AssetElement extends StatelessWidget {
           margin: EdgeInsets.all(this.margin != null ? this.margin : 3.0),  
           child: Image.asset(
             this.assetName, 
-            height: this.height,
-            width: this.width,          
+            height: this.size?? this.height,
+            width: this.size?? this.width,          
         ),
       ),
     );

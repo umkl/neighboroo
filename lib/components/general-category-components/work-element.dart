@@ -17,7 +17,7 @@ class NbWorkElement extends StatelessWidget {
       child: Container(
           child: Center(
         child: Text(
-          "+",
+          "+sfd",
           style: TextStyle(fontSize: 30, color: Colors.white),
         ),
       )),

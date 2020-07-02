@@ -17,7 +17,7 @@ class NbTransportElement extends StatelessWidget {
       child: Container(
           child: Center(
         child: Text(
-          "+",
+          "+sad",
           style: TextStyle(fontSize: 30, color: Colors.white),
         ),
       )),

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:neighboroo/constants.dart';
 import 'package:neighboroo/models/AssetElement.dart';
 import 'package:neighboroo/screens/categories/chat-screen.dart';
-import 'package:neighboroo/screens/categories/items-screen.dart';
+import 'package:neighboroo/screens/categories/item-screen.dart';
 import 'package:neighboroo/screens/categories/transport-screen.dart';
-import 'package:neighboroo/screens/categories/work-screen.dart';
+import 'package:neighboroo/screens/categories/service-screen.dart';
 import 'package:neighboroo/screens/categories/main-screen.dart';
 
 import '../Neighboroo.dart';
