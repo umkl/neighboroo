@@ -2,6 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:neighboroo/constants.dart';
 import 'package:neighboroo/models/Village.dart';
 
+// Container(
+//             padding: EdgeInsets.only(left: 10.0),
+//             child: Text(
+//               "Contacts:",
+//               textAlign: TextAlign.start,
+//               style: TextStyle(
+//                 color: text_color,
+//                 fontWeight: FontWeight.bold,
+//               ),
+//             ),
+//           ),
+//           ConstrainedBox(
+//             constraints: BoxConstraints(minHeight: 100.0, maxHeight: 500.0),
+//             child: Container(
+//               padding: EdgeInsets.all(1.0),
+//               child: Column(
+//                 children: <Widget>[ContactsNeighboroo(), ContactsNeighboroo(),ContactsNeighboroo()]),
+//               ),
+//           ),
 
 class ContactsNeighboroo extends StatefulWidget {
   
@@ -116,35 +135,5 @@ class _ContactsNeighborooState extends State<ContactsNeighboroo> {
         ),
       ),
     );
-    //   Container(
-    //     width: MediaQuery.of(context).size.width, 
-    //     height: 100.0,
-    //     margin: EdgeInsets.all(10.0),
-    //     decoration: BoxDecoration(
-    //       color: box_color,
-    //       borderRadius: BorderRadius.all(Radius.circular(7)),
-    //     ),
-    //     child: Column(
-          
-    //       children: <Widget>[
-    //         Stack(            
-    //           children: <Widget>[                          
-    //              Positioned(
-    //                top: 10,
-    //                left: 10,                 
-    //                child: Text(l.name,)
-    //             ),
-    //           ],
-    //         ),
-    //         Container(
-    //           height: 200.0,
-    //           width: 200.0,
-    //           color: bg,
-    //           )
-    //       ],
-    //     ),
-
-      
-    // );
   }
 }

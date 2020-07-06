@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:neighboroo/components/button.dart';
+import 'package:neighboroo/components/chat-screen-components/chat-create.dart';
 import 'package:neighboroo/components/main-screen-components/feed.dart';
 import 'package:neighboroo/constants.dart';
 import 'package:neighboroo/models/AssetElement.dart';
@@ -13,7 +14,9 @@ class NbChatElement extends StatefulWidget {
   var respondaction;
   var ignoreaction;
 
-  NbChatElement(this.id, this.user, this.datetime, this.message,{this.respondaction,this.ignoreaction});
+  
+
+  NbChatElement(this.id, this.user, this.datetime, this.message,{this.respondaction,this.ignoreaction, Key key}): super(key: key);
 
   @override
   _NbChatElementState createState() =>
@@ -36,120 +39,126 @@ class _NbChatElementState extends State<NbChatElement> {
   Widget build(BuildContext context) {
     String minute = datetimeS.minute > 9 ? datetimeS.minute.toString() : "0" + datetimeS.minute.toString();
 
-    return Container(
-      margin: EdgeInsets.all(7.0),
-      decoration: BoxDecoration(
-        color: box_color,
-        borderRadius: BorderRadius.all(Radius.circular(7.0)),
-      ),
-      child: Column(
-        children: <Widget>[
-          //topbar
-          Container(
-            child: (Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Row(
-                  children: <Widget>[
-                    AssetElement('assets/icons/nb-icon-chat-light-1.png',
-                        size: 20),
-                    Text("Chat", style: TextStyle(
-                      color: text_color,
-                    ),)
-                  ],
-                ),
-                Container(
-                  margin: EdgeInsets.all(5),
-                  child: Text(this.datetimeS.day.toString() + "." + this.datetimeS.month.toString()+ ". " +this.datetimeS.hour.toString() + ":" + minute,
-                      style: TextStyle(color: text_color, fontWeight: FontWeight.bold),),
-                ),
-              ],
-            )),
-          ),
-          //middlebar
-          Container(
-            child: Column(
-              children: <Widget>[
-                Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
+    return ConstrainedBox(
+      constraints: BoxConstraints(minHeight: 150),
+          child: Container(
+        margin: EdgeInsets.all(7.0),
+        decoration: BoxDecoration(
+          color: box_color,
+          borderRadius: BorderRadius.all(Radius.circular(7.0)),
+        ),
+        child: Column(
+          children: <Widget>[
+            //topbar
+            Container(
+              child: (Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Row(
                     children: <Widget>[
-                      // ClipRRect(
-                      //   borderRadius: BorderRadius.all(Radius.circular(7.0)),
-                      //   child: AssetElement("assets/images/nb-village.jpg", size: 100)),
+                      AssetElement('assets/icons/nb-icon-chat-light-1.png',
+                          size: 20),
+                      Text("Chat", style: TextStyle(
+                        color: text_color,
+                      ),)
+                    ],
+                  ),
+                  Container(
+                    margin: EdgeInsets.all(5),
+                    child: Text(this.datetimeS.day.toString() + "." + this.datetimeS.month.toString()+ ". " +this.datetimeS.hour.toString() + ":" + minute,
+                        style: TextStyle(color: text_color, fontWeight: FontWeight.normal),),
+                  ),
+                ],
+              )),
+            ),
+            //middlebar
+            Container(
+              child: Column(
+                children: <Widget>[
+                  Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        // ClipRRect(
+                        //   borderRadius: BorderRadius.all(Radius.circular(7.0)),
+                        //   child: AssetElement("assets/images/nb-village.jpg", size: 100)),
 
-                      Container(
-                        margin: EdgeInsets.all(7.0),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
-                          child: Image(
-                            image: AssetImage('assets/images/nb-profilepic.png'),
-                            width: 80.0,
+                        Container(
+                          margin: EdgeInsets.all(7.0),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                            child: Image(
+                              image: AssetImage('assets/images/nb-profilepic.png'),
+                              width: 80.0,
+                            ),
                           ),
                         ),
-                      ),
-                      Container(
-                        margin: EdgeInsets.all(7.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Container(
-                              child: Text(
-                                userS.username,
-                                style: TextStyle(
-                                  color: text_color,
-                                  fontWeight: FontWeight.bold,
+                        Container(
+                          margin: EdgeInsets.all(7.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Row(
+                                children:<Widget>[
+                                  Text("from ", style: TextStyle(color: text_color),),
+                                  Text(
+                                  userS.username,
+                                  style: TextStyle(
+                                    color: text_color,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
+                                ] 
                               ),
-                            ),
-                            Row(
-                              children: <Widget>[
-                                SizedBox(
-                                  width: 20,
-                                ),
-                                ConstrainedBox(
-                                  constraints: BoxConstraints(
-                                      maxWidth:
-                                          MediaQuery.of(context).size.width *
-                                              0.6),
-                                  child: Text(messageS,style: TextStyle(color: text_color),),
-                                ),
-                              ],
-                            ),
-                            //buttonrow
-                            Container(
-                              width: MediaQuery.of(context).size.width * 0.7,
-                              
-                              child: Container(
+                              Row(
+                                children: <Widget>[
+                                  SizedBox(
+                                    width: 20,
+                                  ),
+                                  ConstrainedBox(
+                                    constraints: BoxConstraints(
+                                        maxWidth:
+                                            MediaQuery.of(context).size.width *
+                                                0.6),
+                                    child: Text(messageS,style: TextStyle(color: text_color),),
+                                  ),
+                                ],
+                              ),
+                              //buttonrow
+                              Container(
+                                width: MediaQuery.of(context).size.width * 0.7,
                                 
-                                margin: EdgeInsets.all(7.0),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: <Widget>[
-                                    Container(
-                                      margin: EdgeInsets.only(right: 5.0),
-                                      child: NbButton(
-                                          buttonname: "ignore", buttoncolor: button_red, buttonfunction: ignoreactionS),
-                                    ),
-                                    Container(
-                                      margin: EdgeInsets.only(left: 5.0),
-                                      child: NbButton(
-                                          buttonname: "respond", buttoncolor: button_red, buttonfunction: respondactionS,),
-                                    ),
-                                  ],
+                                child: Container(
+                                  
+                                  margin: EdgeInsets.all(7.0),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: <Widget>[
+                                      Container(
+                                        margin: EdgeInsets.only(right: 5.0),
+                                        child: NbButton(
+                                            buttonname: "ignore", buttoncolor: button_red, buttonfunction: ignoreactionS),
+                                      ),
+                                      Container(
+                                        margin: EdgeInsets.only(left: 5.0),
+                                        child: NbButton(
+                                            buttonname: "respond", buttoncolor: button_red, buttonfunction: respondactionS,),
+                                      ),
+                                    ],
+                                  ),
                                 ),
-                              ),
-                            )
-                          ],
+                              )
+                            ],
+                          ),
                         ),
-                      ),
-                    ]
-                  )
-              ],
+                      ]
+                    )
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

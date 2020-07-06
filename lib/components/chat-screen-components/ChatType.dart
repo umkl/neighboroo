@@ -1,0 +1,1 @@
+enum ChatType{main,message,event,news}

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:neighboroo/components/chat-screen-components/chat-contacts.dart';
-import 'package:neighboroo/components/chat-screen-components/chat-createbar.dart';
+import 'package:neighboroo/components/chat-screen-components/chat-create.dart';
 import 'package:neighboroo/components/chat-screen-components/chat-recents.dart';
 import 'package:neighboroo/constants.dart';
 
@@ -24,8 +24,7 @@ class NbWorkScreen extends StatelessWidget {
               ),
             ),
           ),
-          Container(
-            child: NbChatCreateBar(),),
+
           Container(
             padding: EdgeInsets.only(left: 10.0),
             child: Text(

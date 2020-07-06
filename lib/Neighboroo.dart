@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:neighboroo/components/general-category-components/chat-element.dart';
 import 'package:neighboroo/components/head.dart';
 import 'package:neighboroo/constants.dart';
 import 'package:neighboroo/models/AssetElement.dart';
@@ -7,7 +8,28 @@ import 'package:neighboroo/screens/categories/main-screen.dart';
 
 
 
+
 class Neighboroo extends StatefulWidget {
+  //villages
+  
+  //chat elements
+  static List<NbChatElement> nbChatElements = [
+    NbChatElement(1, user, DateTime.now(), "bepsn"),
+    NbChatElement(2, user, DateTime.now(), "bepsn1"),
+    NbChatElement(3, user, DateTime.now(), "bepsn2"),
+    NbChatElement(4, user, DateTime.now(), "bepsn2"),
+    NbChatElement(5, user, DateTime.now(), "bepsn2"),
+    NbChatElement(6, user, DateTime.now(), "bepsn2"),
+  ];
+
+  static List getnbChatElements(){
+    return nbChatElements;  
+  } 
+
+  static void setnbChatElements(List<NbChatElement> ls){
+      nbChatElements = ls;
+  } 
+
   static int currentindex = 2;
   @override
   _NeighborooState createState() => _NeighborooState(currentindex);
@@ -112,6 +134,7 @@ class _NeighborooState extends State<Neighboroo> {
     ),
     ); 
   }
+
 }
 
 

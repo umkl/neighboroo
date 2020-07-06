@@ -31,7 +31,6 @@ class _NbButtonState extends State<NbButton> {
         decoration: ShapeDecoration(
           shape: RoundedRectangleBorder(
             side: BorderSide(
-              color: this.buttoncolor,
               style: BorderStyle.none),
               borderRadius: BorderRadius.all(Radius.circular(7))),
               color: buttoncolor
