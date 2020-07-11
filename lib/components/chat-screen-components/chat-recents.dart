@@ -11,7 +11,7 @@ class NbChatRecents extends StatefulWidget {
 }
 
 class _NbChatRecentsState extends State<NbChatRecents> {
-  List<NbChatElement> nbStateChatElements = Neighboroo.getnbChatElements();
+  List<NbChatElement> nbStateChatElements = Neighboroo.getNbChatRecentsElements();
   
   // NbChatElement nbe = nbStateChatElements[6];
   
@@ -58,7 +58,7 @@ class _NbChatRecentsState extends State<NbChatRecents> {
                   
                   Neighboroo.setnbChatElements(nbStateChatElements);
                   print(i.toString());
-                  print(Neighboroo.getnbChatElements());
+                  print(Neighboroo.getNbChatRecentsElements());
                   return nbStateChatElements[i];
                 }
                 

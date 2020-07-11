@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:neighboroo/components/general-category-components/chat-element.dart';
+import 'package:neighboroo/components/general-category-components/user.dart';
+import 'package:neighboroo/components/general-category-components/village.dart';
 import 'package:neighboroo/components/head.dart';
 import 'package:neighboroo/constants.dart';
 import 'package:neighboroo/models/AssetElement.dart';
@@ -13,7 +15,7 @@ class Neighboroo extends StatefulWidget {
   //villages
   
   //chat elements
-  static List<NbChatElement> nbChatElements = [
+  static List<NbChatElement> nbChatRecentsElements = [
     NbChatElement(1, user, DateTime.now(), "bepsn"),
     NbChatElement(2, user, DateTime.now(), "bepsn1"),
     NbChatElement(3, user, DateTime.now(), "bepsn2"),
@@ -22,12 +24,21 @@ class Neighboroo extends StatefulWidget {
     NbChatElement(6, user, DateTime.now(), "bepsn2"),
   ];
 
-  static List getnbChatElements(){
-    return nbChatElements;  
+  static List<NbVillage> nbChatContactElements = [
+    NbVillage(),
+    NbVillage(),
+  ];
+
+  static List getNbChatContactElements(){
+    return nbChatContactElements;
+  }
+
+  static List getNbChatRecentsElements(){
+    return nbChatRecentsElements;  
   } 
 
   static void setnbChatElements(List<NbChatElement> ls){
-      nbChatElements = ls;
+      nbChatRecentsElements = ls;
   } 
 
   static int currentindex = 2;
@@ -38,7 +49,7 @@ class Neighboroo extends StatefulWidget {
 class _NeighborooState extends State<Neighboroo> {
   int currentindex;
   _NeighborooState(this.currentindex);
-  
+    
     void onItemTapped(int index) {
     Neighboroo.currentindex = index;
     print(index);
@@ -96,7 +107,7 @@ class _NeighborooState extends State<Neighboroo> {
             preferredSize: Size.fromHeight(60.0),
             child: NbHead(headcolor: ColorReturn(), searchtext: SearchTextReturn(),),
          ),
-
+      endDrawer: Drawer(child: Text("data"),),
       body: screens.elementAt(currentindex),
 
       bottomNavigationBar: BottomAppBar(
