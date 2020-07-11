@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:neighboroo/Neighboroo.dart';
 import 'package:neighboroo/constants.dart';
 
 class NbCreateMessageContacts extends StatefulWidget {
@@ -29,7 +30,9 @@ class _NbCreateMessageContactsState extends State<NbCreateMessageContacts> {
           ),
         ),
         Container(
-          child: Text("here is a contact item")
+          child: Column(
+            children: Neighboroo.getNbChatContactElements(),
+          )
         ),
       ],
     );

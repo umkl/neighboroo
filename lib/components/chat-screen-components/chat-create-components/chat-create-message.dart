@@ -24,9 +24,7 @@ class _NbChatCreateMessageState extends State<NbChatCreateMessage> {
         children: <Widget>[
           NbHeadline("create a Message"),
           NbCreateMessageContacts(),
-          Column(
-            children: Neighboroo.getNbChatContactElements(),
-          )
+          
         ],
       ),
       

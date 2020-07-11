@@ -24,8 +24,9 @@ class Neighboroo extends StatefulWidget {
     NbChatElement(6, user, DateTime.now(), "bepsn2"),
   ];
 
-  static List<NbVillage> nbChatContactElements = [
+  static List<Widget> nbChatContactElements = [
     NbVillage(),
+    NbUser(),
     NbVillage(),
   ];
 
