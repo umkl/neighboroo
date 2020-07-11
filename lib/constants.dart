@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:neighboroo/models/Village.dart';
 import 'package:neighboroo/models/Element.dart';
 import 'package:neighboroo/models/User.dart';
-import 'package:neighboroo/screens/categories/chat-screen.dart';
-import 'package:neighboroo/screens/categories/item-screen.dart';
-import 'package:neighboroo/screens/categories/main-screen.dart';
-import 'package:neighboroo/screens/categories/transport-screen.dart';
-import 'package:neighboroo/screens/categories/service-screen.dart';
+import 'package:neighboroo/screens/Neighboroo/chat-screen.dart';
+import 'package:neighboroo/screens/Neighboroo/item-screen.dart';
+import 'package:neighboroo/screens/Neighboroo/main-screen.dart';
+import 'package:neighboroo/screens/Neighboroo/transport-screen.dart';
+import 'package:neighboroo/screens/Neighboroo/service-screen.dart';
 
 //color pallete
 const bg  = Color(0xFFEEEEEE);

@@ -5,8 +5,8 @@ import 'package:neighboroo/components/general-category-components/village.dart';
 import 'package:neighboroo/components/head.dart';
 import 'package:neighboroo/constants.dart';
 import 'package:neighboroo/models/AssetElement.dart';
-import 'package:neighboroo/screens/categories/chat-screen.dart';
-import 'package:neighboroo/screens/categories/main-screen.dart';
+import 'package:neighboroo/screens/Neighboroo/chat-screen.dart';
+import 'package:neighboroo/screens/Neighboroo/main-screen.dart';
 
 
 

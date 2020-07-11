@@ -18,6 +18,10 @@ class Feed extends StatefulWidget {
 }
 
 class _FeedState extends State<Feed> {
+  Map<String, String> newUser = {};
+
+  
+
   static int feedElementListSize = 0;
   static List<NbElement> FeedElementList = [
     NbElement(ActionType.message, feedElementListSize++, user, DateTime.parse("2020-06-27 14:02:00"),  message: "Hello, your cat is in our garden\nHello, your cat is in our garden\nHello, your cat is in our garden\nHello, your cat is in our garden\nHello, your cat is in our garden\nHello, your cat is in our garden"),

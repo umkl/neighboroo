@@ -5,8 +5,6 @@ import 'package:neighboroo/components/main-screen-components/village.dart';
 import 'package:neighboroo/components/general-category-components/nav.dart';
 import 'package:neighboroo/constants.dart';
 
-
-
 class NbMainScreen extends StatefulWidget {
   static Feed feed = Feed();
   Color colortheme = bg;
@@ -15,50 +13,49 @@ class NbMainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<NbMainScreen> {
-   
-   ScrollController _controller;
-   final itemSize = 100.0;
-   @override
-   Widget build(BuildContext context) {
-      return
-        Column(
-         children: <Widget>[        
-         Container(
-           color: bg,
-            height: 140.0,
-            child: ListView(
-               shrinkWrap: true,
-               scrollDirection: Axis.horizontal,
-               controller: _controller,
-               padding: EdgeInsets.all(1.0),
-               children: <Widget>[
-                  VillageMain(imagePath: 'assets/images/nb-village.jpg'),
-                  VillageMain(imagePath: 'assets/images/nb-village.jpg'),
-                  VillageMain(imagePath: 'assets/images/nb-village.jpg'),
-                  VillageMain(imagePath: 'assets/images/nb-village.jpg'),
-                  VillageMain(imagePath: 'assets/images/nb-village.jpg'),
-                  AddVillage(),
-                  Container(
-                     width: 50.0,
-                     height: 10.0,
-                     color: Colors.transparent,
-                  )
-               ]),
-         ),
-         NbMainScreen.feed
-         ],
-      );
-   }
+  
+
+  ScrollController _controller;
+  final itemSize = 100.0;
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        Container(
+          color: bg,
+          height: 140.0,
+          child: ListView(
+              shrinkWrap: true,
+              scrollDirection: Axis.horizontal,
+              controller: _controller,
+              padding: EdgeInsets.all(1.0),
+              children: <Widget>[
+                VillageMain(imagePath: 'assets/images/nb-village.jpg'),
+                VillageMain(imagePath: 'assets/images/nb-village.jpg'),
+                VillageMain(imagePath: 'assets/images/nb-village.jpg'),
+                VillageMain(imagePath: 'assets/images/nb-village.jpg'),
+                VillageMain(imagePath: 'assets/images/nb-village.jpg'),
+                AddVillage(),
+                Container(
+                  width: 50.0,
+                  height: 10.0,
+                  color: Colors.transparent,
+                )
+              ]),
+        ),
+        NbMainScreen.feed
+      ],
+    );
+  }
 
   @override
   void initState() {
-   _controller = ScrollController();
-   super.initState();
-   WidgetsBinding.instance.addPostFrameCallback(
-      (_) => {_controller.jumpTo(_controller.position.maxScrollExtent)});
+    _controller = ScrollController();
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback(
+        (_) => {_controller.jumpTo(_controller.position.maxScrollExtent)});
   }
 }
-
 
 // class NbMainScreenBody extends StatelessWidget {
 //   ScrollController sc;
@@ -95,17 +92,6 @@ class _MainScreenState extends State<NbMainScreen> {
 //     );
 //   }
 // }
-
-
-
-
-
-
-
-
-
-
-
 
 //  _moveUp() {
 //     _controller.jumpTo(_controller.position.maxScrollExtent);

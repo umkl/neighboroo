@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:neighboroo/components/button.dart';
 import 'package:neighboroo/components/chat-screen-components/ChatType.dart';
 import 'package:neighboroo/constants.dart';
-import 'package:neighboroo/screens/categories/chat-screen.dart';
+import 'package:neighboroo/screens/Neighboroo/chat-screen.dart';
 
 class NbChatCreateBar extends StatefulWidget {
   Function callback;
