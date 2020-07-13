@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class User {
   final profilepic = Image(image: AssetImage('images/women.png'));
   final String
-  username,
+  name,
   description,
   firstname,
   lastname,
@@ -13,5 +13,5 @@ class User {
   country,
   password;
 
-  User([this.username, this.description ,this.firstname, this.lastname, this.email, this.address, this.city, this.country, this.password]);
+  User([this.name, this.description ,this.firstname, this.lastname, this.email, this.address, this.city, this.country, this.password]);
 }

@@ -103,7 +103,7 @@ class _NbChatElementState extends State<NbChatElement> {
                                 children:<Widget>[
                                   Text("from ", style: TextStyle(color: text_color),),
                                   Text(
-                                  userS.username,
+                                  userS.name,
                                   style: TextStyle(
                                     color: text_color,
                                     fontWeight: FontWeight.bold,

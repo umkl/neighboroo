@@ -13,7 +13,6 @@ class NbDatabaseProivder{
     if(_database != null){
       return _database;
     }
-
     _database = await initDB();
     return _database;
   }

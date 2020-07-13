@@ -12,9 +12,7 @@ class NbMainScreen extends StatefulWidget {
   _MainScreenState createState() => _MainScreenState();
 }
 
-class _MainScreenState extends State<NbMainScreen> {
-  
-
+class _MainScreenState extends State<NbMainScreen>{
   ScrollController _controller;
   final itemSize = 100.0;
   @override
