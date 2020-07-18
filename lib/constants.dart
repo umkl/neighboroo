@@ -10,6 +10,7 @@ import 'package:neighboroo/screens/Neighboroo/service-screen.dart';
 
 //color pallete
 const bg  = Color(0xFFEEEEEE);
+const globe = Color(0x90797578);
 
 const green  = Color(0xFFAACC00);
 const yellow  = Color(0xFFF4D35E);
@@ -26,6 +27,7 @@ const button_green  = Color(0xFFAACC00);
 
 const box_color = Color(0x80D2D2D2);
 const text_color = Color(0xFFFFFFFF);
+const hint_text_color = Color(0x80FFFFFF);
 
 const bar_color = Color(0xFFFFFFF);
 

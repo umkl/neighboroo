@@ -8,6 +8,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:http/http.dart' as http;
+import 'package:neighboroo/screens/Identify/login-screen.dart';
 
 class Identify extends StatefulWidget{
   _IdentifyState createState() => _IdentifyState();
@@ -77,62 +78,63 @@ class _IdentifyState extends State<Identify>{
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-    body: SafeArea(
-          child: SingleChildScrollView(
-        child: Center(
-          child: Column(
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: Text('User Login Form', 
-                style: TextStyle(fontSize: 21))
-              ),
-              Divider(),          
+    return NbLogin();
+    // return Scaffold(
+    // body: SafeArea(
+    //       child: SingleChildScrollView(
+    //     child: Center(
+    //       child: Column(
+    //         children: <Widget>[
+    //           Padding(
+    //             padding: const EdgeInsets.all(12.0),
+    //             child: Text('User Login Form', 
+    //             style: TextStyle(fontSize: 21))
+    //           ),
+    //           Divider(),          
 
-              Container(
-              width: 280,
-              padding: EdgeInsets.all(10.0),
-              child: TextField(
-                  controller: usernameController,
-                  autocorrect: true,
-                  decoration: InputDecoration(hintText: 'Enter Your Email Here'),
-                )
-              ),
+    //           Container(
+    //           width: 280,
+    //           padding: EdgeInsets.all(10.0),
+    //           child: TextField(
+    //               controller: usernameController,
+    //               autocorrect: true,
+    //               decoration: InputDecoration(hintText: 'Enter Your Email Here'),
+    //             )
+    //           ),
 
-              Container(
-              width: 280,
-              padding: EdgeInsets.all(10.0),
-              child: TextField(
-                  controller: passwordController,
-                  autocorrect: true,
-                  obscureText: true,
-                  decoration: InputDecoration(hintText: 'Enter Your Password Here'),
-                )
-              ),
+    //           Container(
+    //           width: 280,
+    //           padding: EdgeInsets.all(10.0),
+    //           child: TextField(
+    //               controller: passwordController,
+    //               autocorrect: true,
+    //               obscureText: true,
+    //               decoration: InputDecoration(hintText: 'Enter Your Password Here'),
+    //             )
+    //           ),
 
-              RaisedButton(
-                onPressed: userLogin,
-                color: Colors.green,
-                textColor: Colors.white,
-                padding: EdgeInsets.fromLTRB(9, 9, 9, 9),
-                child: Text('Click Here To Login'),
-              ),
+    //           RaisedButton(
+    //             onPressed: userLogin,
+    //             color: Colors.green,
+    //             textColor: Colors.white,
+    //             padding: EdgeInsets.fromLTRB(9, 9, 9, 9),
+    //             child: Text('Click Here To Login'),
+    //           ),
 
-              Visibility(
-                visible: visible, 
-                child: Container(
-                  margin: EdgeInsets.only(bottom: 30),
-                  child: CircularProgressIndicator()
-                  )
-                ),
+    //           Visibility(
+    //             visible: visible, 
+    //             child: Container(
+    //               margin: EdgeInsets.only(bottom: 30),
+    //               child: CircularProgressIndicator()
+    //               )
+    //             ),
 
-            ],
-          ),
-        )
-        ),
-    )
-    );
+    //         ],
+    //       ),
+    //     )
+    //     ),
+    // )
+    // );
   }
 }
 
