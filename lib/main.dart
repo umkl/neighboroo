@@ -12,6 +12,7 @@ import 'package:http/http.dart' as http;
 void main()=>{runApp(NeighborooRun())};
 
 class NeighborooRun extends StatelessWidget {
+  
   // @override
   // Widget build(BuildContext context) {//build function
   //   return MaterialApp(
@@ -28,6 +29,7 @@ class NeighborooRun extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Identify()
     );
   }

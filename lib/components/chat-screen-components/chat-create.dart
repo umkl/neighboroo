@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:neighboroo/components/button.dart';
+
 import 'package:neighboroo/components/chat-screen-components/ChatType.dart';
+import 'package:neighboroo/components/general-category-components/button.dart';
 import 'package:neighboroo/constants.dart';
 import 'package:neighboroo/screens/Neighboroo/chat-screen.dart';
 

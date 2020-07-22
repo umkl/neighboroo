@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:neighboroo/components/general-category-components/chat-element.dart';
+import 'package:neighboroo/components/general-category-components/head.dart';
 import 'package:neighboroo/components/general-category-components/user.dart';
 import 'package:neighboroo/components/general-category-components/village.dart';
-import 'package:neighboroo/components/head.dart';
 import 'package:neighboroo/constants.dart';
 import 'package:neighboroo/models/AssetElement.dart';
 import 'package:neighboroo/screens/Neighboroo/chat-screen.dart';

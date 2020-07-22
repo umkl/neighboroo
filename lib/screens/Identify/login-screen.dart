@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:neighboroo/components/button.dart';
 import 'package:neighboroo/components/general-category-components/switch.dart';
+import 'package:neighboroo/components/identify-screen-components/Globe.dart';
 import 'package:neighboroo/constants.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:neighboroo/models/AssetElement.dart';
@@ -24,7 +24,8 @@ class _NbLoginState extends State<NbLogin> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
+      body:
+      Stack(
         children: <Widget>[
 
           Nbbackgroundglobe(),
@@ -357,6 +358,7 @@ class _NbLoginState extends State<NbLogin> {
                         ),
                       ),
                     ),
+                    AnimationTest(),
                 ],
               ),
             ),
@@ -368,6 +370,7 @@ class _NbLoginState extends State<NbLogin> {
 }
 
 class Nbbackgroundglobe extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return Container(

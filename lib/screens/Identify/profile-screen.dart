@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:neighboroo/constants.dart';
 import 'package:neighboroo/models/AssetElement.dart';
-import 'package:neighboroo/screens/Identify/neighboroo-screen.dart';
+import 'package:neighboroo/screens/Identify/first_neighboroo-screen.dart';
 import 'package:neighboroo/screens/Identify/profile-screen.dart';
 
 class NbProfileScreen extends StatefulWidget {
@@ -213,7 +213,7 @@ class _NbProfileScreenState extends State<NbProfileScreen> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => NbFirstNeighborooScreen(null)));
+                                      builder: (context) => NbFirstNeighborooScreen()));
                             },
                             child: Container(
                               height: 30,
@@ -260,61 +260,91 @@ class _NbProfileScreenState extends State<NbProfileScreen> {
 }
 
 
-class Nbbackgroundglobe extends StatefulWidget {
-  @override
-  _NbbackgroundglobeState createState() => _NbbackgroundglobeState();
-}
+// class Nbbackgroundglobe extends StatefulWidget {
+//   @override
+//   _NbbackgroundglobeState createState() => _NbbackgroundglobeState();
+// }
 
-class _NbbackgroundglobeState extends State<Nbbackgroundglobe> {
-  double _width;
-  double _height;
-  double _top;
+// class _NbbackgroundglobeState extends State<Nbbackgroundglobe> {
+//   double _width;
+//   double _height;
+//   double _top;
 
-  @override
-  void initState() {
-    super.initState();
-  }
+//   @override
+//   void initState() {
+//     super.initState();
+//   }
 
-  void updateState(){
-    setState(() {
-    _width = MediaQuery.of(context).size.height * 1.6;
-    _height = MediaQuery.of(context).size.width * 1.9;
-    _top = MediaQuery.of(context).size.height * 0.01;
-    });
-  }
+//   void updateState(){
+//     setState(() {
+//     _width = MediaQuery.of(context).size.height * 1.6;
+//     _height = MediaQuery.of(context).size.width * 1.9;
+//     _top = MediaQuery.of(context).size.height * 0.01;
+//     });
+//   }
 
+//   @override
+//   Widget build(BuildContext context) {
+//     _width = MediaQuery.of(context).size.height * 1.3;
+//     _height = MediaQuery.of(context).size.width * 1.7;
+//     _top = MediaQuery.of(context).size.height * 0.10;
+
+//     return Container(
+//       height: MediaQuery.of(context).size.height,
+//       decoration: BoxDecoration(
+//         borderRadius: BorderRadius.circular(10),
+//         color: Colors.transparent,
+//       ),
+//       child: AnimatedContainer(
+//           duration: Duration(milliseconds: 10),
+//           child: ClipRect(
+//           clipBehavior: Clip.hardEdge,
+//           child: OverflowBox(
+//             maxHeight: _width,
+//             maxWidth: _height,
+//             child: Center(
+//               child: Container(
+//                 margin: EdgeInsets.only(
+//                     top: _top),
+//                 decoration: BoxDecoration(
+//                   color: globe,
+//                   shape: BoxShape.circle,
+//                 ),
+//               ),
+//             ),
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
+class Nbbackgroundglobe extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    _width = MediaQuery.of(context).size.height * 1.3;
-    _height = MediaQuery.of(context).size.width * 1.7;
-    _top = MediaQuery.of(context).size.height * 0.10;
-
     return Container(
       height: MediaQuery.of(context).size.height,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         color: Colors.transparent,
       ),
-      child: AnimatedContainer(
-          duration: Duration(milliseconds: 10),
-          child: ClipRect(
-          clipBehavior: Clip.hardEdge,
-          child: OverflowBox(
-            maxHeight: _width,
-            maxWidth: _height,
-            child: Center(
-              child: Container(
-                margin: EdgeInsets.only(
-                    top: _top),
-                decoration: BoxDecoration(
-                  color: globe,
-                  shape: BoxShape.circle,
-                ),
+      child: ClipRect(
+        clipBehavior: Clip.hardEdge,
+        child: OverflowBox(
+          maxHeight: MediaQuery.of(context).size.height * 1.4,
+          maxWidth: MediaQuery.of(context).size.width * 1.7,
+          child: Center(
+            child: Container(
+              margin: EdgeInsets.only(
+                  top: MediaQuery.of(context).size.height * 0.10),
+              decoration: BoxDecoration(
+                color: globe,
+                shape: BoxShape.circle,
               ),
             ),
           ),
         ),
       ),
     );
+
   }
 }

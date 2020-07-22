@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:neighboroo/components/button.dart';
 import 'package:neighboroo/components/chat-screen-components/chat-create.dart';
+import 'package:neighboroo/components/general-category-components/button.dart';
 import 'package:neighboroo/components/main-screen-components/feed.dart';
 import 'package:neighboroo/constants.dart';
 import 'package:neighboroo/models/AssetElement.dart';

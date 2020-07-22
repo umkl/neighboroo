@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:neighboroo/Neighboroo.dart';
-import 'package:neighboroo/components/button.dart';
 import 'package:neighboroo/components/chat-screen-components/chat-create-components/chat-create-message-components/chat-create-message-contacts.dart';
-import 'package:neighboroo/components/headline.dart';
+import 'package:neighboroo/components/general-category-components/button.dart';
+import 'package:neighboroo/components/general-category-components/headline.dart';
 import 'package:neighboroo/constants.dart';
 
 class NbChatCreateMessage extends StatefulWidget {
