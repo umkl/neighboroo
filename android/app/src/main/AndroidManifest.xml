@@ -9,6 +9,11 @@
         android:name="io.flutter.app.FlutterApplication"
         android:label="neighboroo"
         android:icon="@mipmap/ic_launcher">
+
+        <!-- TODO: Add your API key here -->
+        <meta-data android:name="com.google.android.geo.API_KEY"
+               android:value="AIzaSyCwOxdyRkM1L5JodvTuyyMn5DoSMC3vfSQ"/>
+
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

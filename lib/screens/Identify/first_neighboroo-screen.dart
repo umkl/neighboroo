@@ -10,14 +10,13 @@ class NbFirstNeighborooScreen extends StatefulWidget {
 
   @override
   NbFirstNeighborooScreenState createState() {
-      this.state = new NbFirstNeighborooScreenState();
-      return this.state;
+    this.state = new NbFirstNeighborooScreenState();
+    return this.state;
   }
 }
 
 class NbFirstNeighborooScreenState extends State<NbFirstNeighborooScreen> {
   double _opacity = 0.0;
-
   startSearchMode() {
     setState(() {
       _opacity = 1.0;
@@ -30,7 +29,12 @@ class NbFirstNeighborooScreenState extends State<NbFirstNeighborooScreen> {
       body: Stack(
       children: <Widget>[
         NbFirstNeighborooScreenUI(),
-        
+        ],
+      )
+    );
+  }
+}
+
         // AnimatedContainer(
         //   duration: Duration(milliseconds: 200),
         //   child: Opacity(
@@ -42,10 +46,5 @@ class NbFirstNeighborooScreenState extends State<NbFirstNeighborooScreen> {
         //       ),
         //     ),
         //   )
-        ],
-      )
-    );
-  }
-}
 
 

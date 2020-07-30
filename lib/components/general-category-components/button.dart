@@ -44,7 +44,7 @@ class _NbButtonState extends State<NbButton> {
             materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
             shape: RoundedRectangleBorder(
               side: BorderSide(
-                color: button_red,
+                color: buttoncolor,
                 width: buttonwidth ?? 10,
                 style: BorderStyle.none)),
             child: Text(this.buttonname, style: TextStyle(color: text_color),),
