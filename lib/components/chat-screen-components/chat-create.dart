@@ -90,9 +90,6 @@ class _NbChatCreateBarState extends State<NbChatCreateBar> {
 }
 
 
-
-
-
 //element with event that is in create bar
 
 class NbChatCreateBarElement extends StatefulWidget {
