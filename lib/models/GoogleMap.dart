@@ -2,7 +2,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class NbGoogleMap{
   List<Marker> markers;
-  int range;
+  int range = 30;
 
   NbGoogleMap({this.markers, this.range = 30});
 

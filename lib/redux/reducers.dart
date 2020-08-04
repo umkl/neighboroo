@@ -6,6 +6,8 @@ NbGoogleMap reducer(NbGoogleMap prevState, dynamic action ){
 
   if(action is Markers){
     newState.markers = action.payload;
+  }else if(action is Range){
+    newState.range = action.payload;
   }
   return newState;
 }

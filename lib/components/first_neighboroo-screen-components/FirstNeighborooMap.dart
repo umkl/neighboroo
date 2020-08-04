@@ -2,6 +2,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:neighboroo/components/first_neighboroo-screen-components/FirstNeighborooSearch.dart';
 import 'package:neighboroo/components/general-category-components/button.dart';
 import 'package:neighboroo/constants.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -88,9 +89,13 @@ class _NbFirstNeighborooMapScreenState
                               //     position: coordinate,
                               //     markerId:
                               //     MarkerId(Random().nextInt(100).toString())));
-                                Marker m = new Marker(position: coordinate, markerId: MarkerId(Random().nextInt(100).toString()));
-                                _markers.add(m);
-                                StoreProvider.of<NbGoogleMap>(context).dispatch(_markers);
+                              Marker m = new Marker(
+                                  position: coordinate,
+                                  markerId: MarkerId(
+                                      Random().nextInt(100).toString()));
+                              _markers.add(m);
+                              StoreProvider.of<NbGoogleMap>(context)
+                                  .dispatch(_markers);
                             }, // onMapCreated: _onMapCreated,
                           ),
                         ),
@@ -122,9 +127,10 @@ class _NbFirstNeighborooMapScreenState
                                 child: NbButton(
                                   buttonname: "continue",
                                   buttoncolor: red,
-                                  buttonfunction: () async {
-                                    // await print(provider.markers);
-                                    Navigator.pop(context);
+                                  buttonfunction: () => {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(builder: (context) => NbFirstNeighborooSearch())),
                                   },
                                 )),
                           ),

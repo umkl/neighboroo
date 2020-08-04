@@ -8,6 +8,8 @@ import 'package:neighboroo/models/AssetElement.dart';
 import 'package:neighboroo/screens/Neighboroo/chat-screen.dart';
 import 'package:neighboroo/screens/Neighboroo/main-screen.dart';
 
+import 'models/Village.dart';
+
 
 
 
@@ -25,9 +27,9 @@ class Neighboroo extends StatefulWidget {
   ];
 
   static List<Widget> nbChatContactElements = [
-    NbVillage(),
+    NbVillage(Village("Pfaffenhofen","spostn",picture: "assets/images/nb-village.jpg")),
     NbUser(),
-    NbVillage(),
+    NbVillage(Village("Pfaffenhofen","spostn",picture: "assets/images/nb-village.jpg")),
   ];
 
   static List getNbChatContactElements(){

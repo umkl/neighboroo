@@ -1,3 +1,5 @@
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:neighboroo/components/general-category-components/switch.dart';
 import 'package:neighboroo/components/identify-screen-components/Globe.dart';
@@ -12,7 +14,59 @@ class NbLogin extends StatefulWidget {
 }
 
 class _NbLoginState extends State<NbLogin> {
+  
+  //definining variables
+  final usernameTextController = TextEditingController();
+  final passwordTextController = TextEditingController();
   bool autologin;
+  bool visible = false;
+
+  Future userLogin() async {
+    setState(() {
+      visible = true;
+    });
+
+    String username = usernameTextController.text;
+    String password = passwordTextController.text;
+
+    var url = "http://localhost/Neighboroo-localtest/registration.php";
+
+    var data = {'username': username, 'password': password};
+    
+    var response = await http.post(url, body: json.encode(data));
+    
+    var message = jsonDecode(response.body);
+
+    if(message == 'Login Matched'){
+      setState(() {
+        visible = false;
+      });
+
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => Text(usernameTextController.text))
+      );
+    }else{
+      setState(() {
+        visible = false;
+      });
+      showDialog(
+        context: context,
+        builder: (BuildContext context){
+          return AlertDialog(
+            title: new Text("message"),
+              actions: <Widget>[
+                FlatButton(
+                  child: new Text("OK"),
+                  onPressed: (){
+                    Navigator.of(context).pop();
+                  })
+              ],
+          );
+        }
+      );
+    }
+  }
 
   @override
   void initState() {
@@ -20,33 +74,18 @@ class _NbLoginState extends State<NbLogin> {
     super.initState();
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:
-      Stack(
+      body: Stack(
         children: <Widget>[
-
           Nbbackgroundglobe(),
-          // Container(
-          //   margin: EdgeInsets.only(top: 100.0),
-          //   child: ClipRRect(
-          //     borderRadius: BorderRadius.all(Radius.lerp(Radius.circular(10.0), Radius.elliptical(1000, 100), 100.0)),
-          //     child: Container(
-          //       width: MediaQuery.of(context).size.width*2,
-          //       height: 700,
-          //       decoration: BoxDecoration(
-          //         color: globe,
-          //       ),
-          //     ),
-          //   ),
-          // ),
           Container(
             child: SafeArea(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
+                
                 children: <Widget>[
                   Container(
                     height: 200,
@@ -120,14 +159,16 @@ class _NbLoginState extends State<NbLogin> {
                       ],
                     ),
                   ),
+
                   Container(
                     margin: EdgeInsets.only(left: 40.0, top: 30),
                     child: Text("Login",
-                        style: TextStyle(
-                          fontSize: 28,
-                          fontWeight: FontWeight.w700,
-                          color: text_color,
-                        )),
+                      style: TextStyle(
+                        fontSize: 28,
+                        fontWeight: FontWeight.w700,
+                        color: text_color,
+                      )
+                    ),
                   ),
                   Container(
                       margin: EdgeInsets.only(top: 20, left: 30, right: 30),
@@ -139,6 +180,8 @@ class _NbLoginState extends State<NbLogin> {
                         borderRadius: BorderRadius.all(Radius.circular(7.0)),
                       ),
                       child: TextField(
+                        autocorrect: false,
+                        controller: usernameTextController,
                         decoration: InputDecoration(
                           enabledBorder: InputBorder.none,
                           focusedBorder: InputBorder.none,
@@ -168,6 +211,8 @@ class _NbLoginState extends State<NbLogin> {
                         borderRadius: BorderRadius.all(Radius.circular(7.0)),
                       ),
                       child: TextField(
+                        obscureText: true,
+                        controller: passwordTextController,
                         decoration: InputDecoration(
                           enabledBorder: InputBorder.none,
                           focusedBorder: InputBorder.none,
@@ -240,7 +285,10 @@ class _NbLoginState extends State<NbLogin> {
                         child: InkWell(
                           splashColor: Colors.white12,
                           onTap: () => {
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=> NbRegister()))
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => NbRegister()))
                           },
                           child: Container(
                             child: Row(
@@ -260,16 +308,26 @@ class _NbLoginState extends State<NbLogin> {
                                         color: text_color,
                                       ),
                                     )),
+                                // Container(
+                                //     child: Opacity(
+                                //   opacity: 1,
+                                //   child: SvgPicture.asset(
+                                //     'assets/icons/svg/create.svg',
+                                //     color: Colors.white,
+                                //     height: 30,
+                                //     width: 30,
+                                //   ),
+                                // ))
                                 Container(
-                                    child: Opacity(
-                                  opacity: 1,
-                                  child: SvgPicture.asset(
-                                    'assets/icons/svg/create.svg',
-                                    color: Colors.white,
                                     height: 30,
                                     width: 30,
-                                  ),
-                                ))
+                                    child: Opacity(
+                                      opacity: 1,
+                                      child: Icon(
+                                        Icons.create,
+                                        color: Colors.white,
+                                      ),
+                                    ))
                               ],
                             ),
                           ),
@@ -292,24 +350,23 @@ class _NbLoginState extends State<NbLogin> {
                               children: <Widget>[
                                 Container(
                                   margin: EdgeInsets.symmetric(horizontal: 5),
-                                  child: Text("autologin",
-                                      style: TextStyle(
-                                        color: text_color
-                                      ),
-                                    ),
+                                  child: Text(
+                                    "autologin",
+                                    style: TextStyle(color: text_color),
+                                  ),
                                 ),
                                 // NbSwitch(
                                 //   value: autologin,
                                 //   onChanged: (value){
                                 //     setState(() {
                                 //       autologin = value;
-                                //       print(value); 
+                                //       print(value);
                                 //     });
                                 //   },
                                 //   )
                                 Switch(
                                   value: autologin,
-                                  onChanged: (value){
+                                  onChanged: (value) {
                                     setState(() {
                                       autologin = value;
                                       print(autologin);
@@ -317,13 +374,12 @@ class _NbLoginState extends State<NbLogin> {
                                   },
                                   activeTrackColor: Colors.lightGreenAccent,
                                   activeColor: Colors.green,
-                                  ),
-                                  
+                                ),
                               ],
                             ),
                           ),
                           InkWell(
-                            onTap: () => {print("goo")},
+                            onTap: () => userLogin,
                             child: Container(
                               height: 30,
                               width: 50,
@@ -345,20 +401,20 @@ class _NbLoginState extends State<NbLogin> {
                           )
                         ]),
                   ),
-                    Opacity(
-                      opacity: 1,
-                      child: Container(
-                        margin: EdgeInsets.only(top: 40),
-                        width: MediaQuery.of(context).size.width,
-                        child: Text(
-                          "Living together made easy and fun",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              color: Colors.white60, fontWeight: FontWeight.bold),
-                        ),
+                  Opacity(
+                    opacity: 1,
+                    child: Container(
+                      margin: EdgeInsets.only(top: 40),
+                      width: MediaQuery.of(context).size.width,
+                      child: Text(
+                        "Living together made easy and fun",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            color: Colors.white60, fontWeight: FontWeight.bold),
                       ),
                     ),
-                    AnimationTest(),
+                  ),
+                  AnimationTest(),
                 ],
               ),
             ),
@@ -370,7 +426,6 @@ class _NbLoginState extends State<NbLogin> {
 }
 
 class Nbbackgroundglobe extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Container(

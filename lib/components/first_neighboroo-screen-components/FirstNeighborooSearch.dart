@@ -6,6 +6,9 @@ import 'package:neighboroo/components/general-category-components/village.dart';
 import 'package:neighboroo/constants.dart';
 import 'package:neighboroo/dynamic.dart';
 import 'package:neighboroo/models/GoogleMap.dart';
+import 'package:neighboroo/models/Village.dart';
+
+double screenheight;
 
 int NbGoogleMapLocationCounter = 0;
 
@@ -18,9 +21,12 @@ class NbFirstNeighborooSearch extends StatefulWidget {
 class _NbFirstNeighborooSearchState extends State<NbFirstNeighborooSearch> {
   // PageController controller = PageController();
   // var currentPageValue = 0.0;
+  
 
   @override
   Widget build(BuildContext context) {
+    screenheight = MediaQuery.of(context).size.height * 0.6;
+
     return Scaffold(
         backgroundColor: Colors.white,
         body: Stack(
@@ -134,14 +140,15 @@ class _NbFirstNeighborooSearchState extends State<NbFirstNeighborooSearch> {
                           ),
                         ),
                       ),
-                      Column(
-                        children: <Widget>[
-                          NbLocationElement(counter: 1, range: 22),
-                          NbLocationElement(counter: 2, range: 22),
-                          NbLocationElement(counter: 3, range: 22),
-                          NbLocationElement(counter: 4, range: 22),
-                        ],
-                      ),
+                      // Column(
+                      //   children: <Widget>[
+                      //     NbLocationElement(counter: 1, range: 22),
+                      //     NbLocationElement(counter: 2, range: 22),
+                      //     NbLocationElement(counter: 3, range: 22),
+                      //     NbLocationElement(counter: 4, range: 22),
+                      //   ],
+                      // ),
+                      getGoogleMapLocations(),
                       Container(
                         margin: EdgeInsets.only(left: 20, top: 10, bottom: 0),
                         child: Text(
@@ -153,17 +160,13 @@ class _NbFirstNeighborooSearchState extends State<NbFirstNeighborooSearch> {
                       ),
                       Container(
                         margin: EdgeInsets.only(top: 20),
-                        height: 300.0,
+                        height: MediaQuery.of(context).size.height* 0.4,
                         child: ListView(
                           children: <Widget>[
-                            NbVillage(),
-                            NbVillage(),
-                            NbVillage(),
-                            NbVillage(),
-                            NbVillage(),
-                            NbVillage(),
-                            NbVillage(),
-                            NbVillage()
+                            NbVillage(Village("Pfaffenhofen","Ldafkjalskdfjkasjfkasjfjafjaksjfdlasjfdkljadlkfjaslkfjaslkjdfkladsjfklajskfljaskldfjaklsjdfkljalfd",picture: "assets/images/nb-village.jpg")),
+                            NbVillage(Village("Pfaffenhofen","Ldafkjalskdfjkasjfkasjfjafjaksjfdlasjfdkljadlkfjaslkfjaslkjdfkladsjfklajskfljaskldfjaklsjdfkljalfd",picture: "assets/images/nb-village.jpg")),
+                            NbVillage(Village("Pfaffenhofen","Ldafkjalskdfjkasjfkasjfjafjaksjfdlasjfdkljadlkfjaslkfjaslkjdfkladsjfklajskfljaskldfjaklsjdfkljalfd",picture: "assets/images/nb-village.jpg")),
+                            NbVillage(Village("Pfaffenhofen","Ldafkjalskdfjkasjfkasjfjafjaksjfdlasjfdkljadlkfjaslkfjaslkjdfkladsjfklajskfljaskldfjaklsjdfkljalfd",picture: "assets/images/nb-village.jpg")),
                           ],
                         ),
                       ),
@@ -173,70 +176,56 @@ class _NbFirstNeighborooSearchState extends State<NbFirstNeighborooSearch> {
           ],
         ));
   }
+
+  Widget getGoogleMapLocations(){
+    List<Widget> list = new List<Widget>();
+    print("adfasd");
+    print(getReduxValue());
+    
+    return StoreConnector<NbGoogleMap, NbGoogleMap>(
+      converter: (store) => store.state,
+      builder: (context, state) {
+        // state.markers == null ? print("keine Markers vorhanden!") : print("marker sind vorhanden");
+        for(int i = 1; i < state.markers.length+ 1; i++){
+          screenheight -= 0.1;
+          list.add(
+            NbLocationElement(counter: i, range: state.range),
+          );
+          // print(state.getMarkers);
+        }
+        return Column(
+          children: list
+        );
+      }
+    );
+    
+  }
+
+  Widget getReduxValue(){
+    String value = "kk";
+    return StoreConnector<NbGoogleMap, NbGoogleMap>(
+      converter: (store) => store.state,
+      builder: (context, state) {
+        (state.getMarkers == null) ? value = "keine Markers vorhanden!" : value = "marker sind vorhanden";
+        // print(state.markers);
+        // for(int i = 0; i < state.markers.length; i++){          
+        //   list.add(
+        //     NbLocationElement(counter: i, range: state.range),
+        //   );
+        //   // print(state.getMarkers);
+        return Text(state.markers.toString());
+      }
+    );
+    // return value;
+  }
 }
-
-// @override
-// Widget build(BuildContext context) {
-//   controller.addListener(() {
-//     setState(() {
-//       currentPageValue = controller.page;
-//     });
-//   });
-
-//   return Scaffold(
-//       body: PageView.builder(
-//     controller: controller,
-//     itemBuilder: (context, position) {
-//       if (position == currentPageValue.floor()) {
-//         return Transform(
-//           transform: Matrix4.identity()
-//             ..rotateX(currentPageValue - position),
-//           child: Container(
-//             color: position % 2 == 0 ? Colors.blue : Colors.pink,
-//             child: Center(
-//               child: Text(
-//                 "Page",
-//                 style: TextStyle(color: Colors.white, fontSize: 22.0),
-//               ),
-//             ),
-//           ),
-//         );
-//       } else if (position == currentPageValue.floor() + 1) {
-//         return Transform(
-//           transform: Matrix4.identity()..rotateX(currentPageValue - position),
-//           child: Container(
-//             color: position % 2 == 0 ? Colors.blue : Colors.pink,
-//             child: Center(
-//               child: Text(
-//                 "Page",
-//                 style: TextStyle(color: Colors.white, fontSize: 22.0),
-//               ),
-//             ),
-//           ),
-//         );
-//       } else {
-//         return Container(
-//           color: position % 2 == 0 ? Colors.blue : Colors.pink,
-//           child: Center(
-//             child: Text(
-//               "Page",
-//               style: TextStyle(color: Colors.white, fontSize: 22.0),
-//             ),
-//           ),
-//         );
-//       }
-//     },
-//     itemCount: 10,
-//   ));
-// }
 
 class NbLocationElement extends StatelessWidget {
   int range;
   String name;
   int counter;
 
-
-  NbLocationElement({@required this.counter, this.name,@required this.range});
+  NbLocationElement({@required this.counter, this.name, @required this.range});
 
   @override
   Widget build(BuildContext context) {
@@ -294,3 +283,59 @@ class NbLocationElement extends StatelessWidget {
     );
   }
 }
+
+
+// @override
+// Widget build(BuildContext context) {
+//   controller.addListener(() {
+//     setState(() {
+//       currentPageValue = controller.page;
+//     });
+//   });
+
+//   return Scaffold(
+//       body: PageView.builder(
+//     controller: controller,
+//     itemBuilder: (context, position) {
+//       if (position == currentPageValue.floor()) {
+//         return Transform(
+//           transform: Matrix4.identity()
+//             ..rotateX(currentPageValue - position),
+//           child: Container(
+//             color: position % 2 == 0 ? Colors.blue : Colors.pink,
+//             child: Center(
+//               child: Text(
+//                 "Page",
+//                 style: TextStyle(color: Colors.white, fontSize: 22.0),
+//               ),
+//             ),
+//           ),
+//         );
+//       } else if (position == currentPageValue.floor() + 1) {
+//         return Transform(
+//           transform: Matrix4.identity()..rotateX(currentPageValue - position),
+//           child: Container(
+//             color: position % 2 == 0 ? Colors.blue : Colors.pink,
+//             child: Center(
+//               child: Text(
+//                 "Page",
+//                 style: TextStyle(color: Colors.white, fontSize: 22.0),
+//               ),
+//             ),
+//           ),
+//         );
+//       } else {
+//         return Container(
+//           color: position % 2 == 0 ? Colors.blue : Colors.pink,
+//           child: Center(
+//             child: Text(
+//               "Page",
+//               style: TextStyle(color: Colors.white, fontSize: 22.0),
+//             ),
+//           ),
+//         );
+//       }
+//     },
+//     itemCount: 10,
+//   ));
+// }
