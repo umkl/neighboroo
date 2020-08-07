@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:neighboroo/components/first_neighboroo-screen-components/FirstNeighborooMap.dart';
-import 'package:neighboroo/components/general-category-components/village.dart';
+import 'package:neighboroo/components/first_neighboroo-components/FirstNeighborooMap.dart';
+import 'package:neighboroo/components/general-components/neighboroo.dart';
 import 'package:neighboroo/constants.dart';
 import 'package:neighboroo/dynamic.dart';
 import 'package:neighboroo/models/GoogleMap.dart';
-import 'package:neighboroo/models/Village.dart';
+import 'package:neighboroo/models/Neighboroo.dart';
 
 double screenheight;
 
@@ -21,7 +21,6 @@ class NbFirstNeighborooSearch extends StatefulWidget {
 class _NbFirstNeighborooSearchState extends State<NbFirstNeighborooSearch> {
   // PageController controller = PageController();
   // var currentPageValue = 0.0;
-  
 
   @override
   Widget build(BuildContext context) {
@@ -121,15 +120,14 @@ class _NbFirstNeighborooSearchState extends State<NbFirstNeighborooSearch> {
                                     opacity: 0.83,
                                     child: Row(
                                       children: <Widget>[
-                                        Icon(Icons.map,color:Colors.white),
+                                        Icon(Icons.map, color: Colors.white),
                                         Container(
                                           margin: EdgeInsets.only(left: 20),
                                           child: Text("add location",
-                                            style: TextStyle(
-                                              color: text_color,
-                                              fontSize: 20,
-                                            )
-                                          ),
+                                              style: TextStyle(
+                                                color: text_color,
+                                                fontSize: 20,
+                                              )),
                                         ),
                                       ],
                                     ),
@@ -160,13 +158,21 @@ class _NbFirstNeighborooSearchState extends State<NbFirstNeighborooSearch> {
                       ),
                       Container(
                         margin: EdgeInsets.only(top: 20),
-                        height: MediaQuery.of(context).size.height* 0.4,
+                        height: MediaQuery.of(context).size.height * 0.4,
                         child: ListView(
                           children: <Widget>[
-                            NbVillage(Village("Pfaffenhofen","Ldafkjalskdfjkasjfkasjfjafjaksjfdlasjfdkljadlkfjaslkfjaslkjdfkladsjfklajskfljaskldfjaklsjdfkljalfd",picture: "assets/images/nb-village.jpg")),
-                            NbVillage(Village("Pfaffenhofen","Ldafkjalskdfjkasjfkasjfjafjaksjfdlasjfdkljadlkfjaslkfjaslkjdfkladsjfklajskfljaskldfjaklsjdfkljalfd",picture: "assets/images/nb-village.jpg")),
-                            NbVillage(Village("Pfaffenhofen","Ldafkjalskdfjkasjfkasjfjafjaksjfdlasjfdkljadlkfjaslkfjaslkjdfkladsjfklajskfljaskldfjaklsjdfkljalfd",picture: "assets/images/nb-village.jpg")),
-                            NbVillage(Village("Pfaffenhofen","Ldafkjalskdfjkasjfkasjfjafjaksjfdlasjfdkljadlkfjaslkfjaslkjdfkladsjfklajskfljaskldfjaklsjdfkljalfd",picture: "assets/images/nb-village.jpg")),
+                            NbNeighboroo(Neighboroo("Pfaffenhofen",
+                                "Ldafkjalskdfjkasjfkasjfjafjaksjfdlasjfdkljadlkfjaslkfjaslkjdfkladsjfklajskfljaskldfjaklsjdfkljalfd",
+                                picture: "assets/images/nb-village.jpg")),
+                            NbNeighboroo(Neighboroo("Pfaffenhofen",
+                                "Ldafkjalskdfjkasjfkasjfjafjaksjfdlasjfdkljadlkfjaslkfjaslkjdfkladsjfklajskfljaskldfjaklsjdfkljalfd",
+                                picture: "assets/images/nb-village.jpg")),
+                            NbNeighboroo(Neighboroo("Pfaffenhofen",
+                                "Ldafkjalskdfjkasjfkasjfjafjaksjfdlasjfdkljadlkfjaslkfjaslkjdfkladsjfklajskfljaskldfjaklsjdfkljalfd",
+                                picture: "assets/images/nb-village.jpg")),
+                            NbNeighboroo(Neighboroo("Pfaffenhofen",
+                                "Ldafkjalskdfjkasjfkasjfjafjaksjfdlasjfdkljadlkfjaslkfjaslkjdfkladsjfklajskfljaskldfjaklsjdfkljalfd",
+                                picture: "assets/images/nb-village.jpg")),
                           ],
                         ),
                       ),
@@ -177,45 +183,42 @@ class _NbFirstNeighborooSearchState extends State<NbFirstNeighborooSearch> {
         ));
   }
 
-  Widget getGoogleMapLocations(){
+  Widget getGoogleMapLocations() {
     List<Widget> list = new List<Widget>();
     print("adfasd");
     print(getReduxValue());
-    
+
     return StoreConnector<NbGoogleMap, NbGoogleMap>(
-      converter: (store) => store.state,
-      builder: (context, state) {
-        // state.markers == null ? print("keine Markers vorhanden!") : print("marker sind vorhanden");
-        for(int i = 1; i < state.markers.length+ 1; i++){
-          screenheight -= 0.1;
-          list.add(
-            NbLocationElement(counter: i, range: state.range),
-          );
-          // print(state.getMarkers);
-        }
-        return Column(
-          children: list
-        );
-      }
-    );
-    
+        converter: (store) => store.state,
+        builder: (context, state) {
+          // state.markers == null ? print("keine Markers vorhanden!") : print("marker sind vorhanden");
+          for (int i = 1; i < state.markers.length + 1; i++) {
+            screenheight -= 0.1;
+            list.add(
+              NbLocationElement(counter: i, range: state.range),
+            );
+            // print(state.getMarkers);
+          }
+          return Column(children: list);
+        });
   }
 
-  Widget getReduxValue(){
+  Widget getReduxValue() {
     String value = "kk";
     return StoreConnector<NbGoogleMap, NbGoogleMap>(
-      converter: (store) => store.state,
-      builder: (context, state) {
-        (state.getMarkers == null) ? value = "keine Markers vorhanden!" : value = "marker sind vorhanden";
-        // print(state.markers);
-        // for(int i = 0; i < state.markers.length; i++){          
-        //   list.add(
-        //     NbLocationElement(counter: i, range: state.range),
-        //   );
-        //   // print(state.getMarkers);
-        return Text(state.markers.toString());
-      }
-    );
+        converter: (store) => store.state,
+        builder: (context, state) {
+          (state.getMarkers == null)
+              ? value = "keine Markers vorhanden!"
+              : value = "marker sind vorhanden";
+          // print(state.markers);
+          // for(int i = 0; i < state.markers.length; i++){
+          //   list.add(
+          //     NbLocationElement(counter: i, range: state.range),
+          //   );
+          //   // print(state.getMarkers);
+          return Text(state.markers.toString());
+        });
     // return value;
   }
 }
@@ -283,7 +286,6 @@ class NbLocationElement extends StatelessWidget {
     );
   }
 }
-
 
 // @override
 // Widget build(BuildContext context) {

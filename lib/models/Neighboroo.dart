@@ -2,13 +2,13 @@
 import 'package:flutter/material.dart';
 import 'package:neighboroo/models/User.dart';
 
-class Village{
+class Neighboroo{
   String _name;
   String _description;
   String picture;
   var users = new List<User>(); 
 
-  Village(this._name, this._description,{this.picture, this.users});
+  Neighboroo(this._name, this._description,{this.picture, this.users});
 
   get description{
     return this._description;
@@ -39,8 +39,4 @@ class Village{
       );
     }
   }
-  
-  
-
-
 }

@@ -1,11 +1,11 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
-import 'package:neighboroo/components/general-category-components/switch.dart';
-import 'package:neighboroo/components/identify-screen-components/Globe.dart';
+import 'package:neighboroo/Surface.dart';
 import 'package:neighboroo/constants.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:neighboroo/models/AssetElement.dart';
+import 'package:neighboroo/models/User.dart';
 import 'package:neighboroo/screens/Identify/register-screen.dart';
 
 class NbLogin extends StatefulWidget {
@@ -30,21 +30,21 @@ class _NbLoginState extends State<NbLogin> {
     String password = passwordTextController.text;
 
     var url = "http://localhost/Neighboroo-localtest/registration.php";
+    var response = await http.post(url, body: jsonEncode({'username': username, 'password': password}));
+    print(response.body);
+    Map<String, dynamic> message = jsonDecode(response.body);
+    var cmessage = "Login Matched";
 
-    var data = {'username': username, 'password': password};
-    
-    var response = await http.post(url, body: json.encode(data));
-    
-    var message = jsonDecode(response.body);
-
-    if(message == 'Login Matched'){
+    // var message = jsonDecode(response.body);
+    if(message["message"]=="Login Matched"){
+      User u = new User();
+      
       setState(() {
         visible = false;
       });
-
-      Navigator.push(
+      Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => Text(usernameTextController.text))
+        MaterialPageRoute(builder: (context) => Surface())
       );
     }else{
       setState(() {
@@ -54,7 +54,7 @@ class _NbLoginState extends State<NbLogin> {
         context: context,
         builder: (BuildContext context){
           return AlertDialog(
-            title: new Text("message"),
+            title: new Text(":("),
               actions: <Widget>[
                 FlatButton(
                   child: new Text("OK"),
@@ -180,6 +180,7 @@ class _NbLoginState extends State<NbLogin> {
                         borderRadius: BorderRadius.all(Radius.circular(7.0)),
                       ),
                       child: TextField(
+                        
                         autocorrect: false,
                         controller: usernameTextController,
                         decoration: InputDecoration(
@@ -192,6 +193,7 @@ class _NbLoginState extends State<NbLogin> {
                               fontWeight: FontWeight.w400),
                         ),
                         style: TextStyle(
+                          fontSize: 20,
                           fontWeight: FontWeight.w400,
                           color: text_color,
                         ),
@@ -211,6 +213,7 @@ class _NbLoginState extends State<NbLogin> {
                         borderRadius: BorderRadius.all(Radius.circular(7.0)),
                       ),
                       child: TextField(
+                        
                         obscureText: true,
                         controller: passwordTextController,
                         decoration: InputDecoration(
@@ -223,6 +226,7 @@ class _NbLoginState extends State<NbLogin> {
                               fontWeight: FontWeight.w400),
                         ),
                         style: TextStyle(
+                          fontSize: 20,
                           fontWeight: FontWeight.w400,
                           color: text_color,
                         ),
@@ -379,7 +383,9 @@ class _NbLoginState extends State<NbLogin> {
                             ),
                           ),
                           InkWell(
-                            onTap: () => userLogin,
+                            onTap: () async{
+                              userLogin();
+                              },
                             child: Container(
                               height: 30,
                               width: 50,
@@ -414,7 +420,7 @@ class _NbLoginState extends State<NbLogin> {
                       ),
                     ),
                   ),
-                  AnimationTest(),
+                  // AnimationTest(),
                 ],
               ),
             ),

@@ -2,14 +2,13 @@ import 'package:flutter/material.dart';
 import '../../constants.dart';
 
 
-class VillageMain extends StatelessWidget {
+class NbNeighborooMain extends StatelessWidget {
   String imagePath;
   String name;
   double neighboroos;
   double size;
 
-  
-  VillageMain({this.imagePath});
+  NbNeighborooMain({this.imagePath});
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +56,7 @@ class VillageMain extends StatelessWidget {
   }
 }
 
-class AddVillage extends StatelessWidget {
+class NbAddNeighborooMain extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(

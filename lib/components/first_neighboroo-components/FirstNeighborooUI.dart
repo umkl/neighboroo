@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:neighboroo/components/first_neighboroo-screen-components/FirstNeighborooSearch.dart';
-import 'package:neighboroo/components/first_neighboroo-screen-components/FirstNeighborooUI.dart';
+import 'package:neighboroo/components/first_neighboroo-components/FirstNeighborooSearch.dart';
 import 'package:neighboroo/constants.dart';
 import 'package:neighboroo/models/AssetElement.dart';
 import 'package:neighboroo/screens/Identify/profile-screen.dart';

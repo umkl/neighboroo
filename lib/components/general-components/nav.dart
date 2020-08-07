@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:neighboroo/Surface.dart';
 import 'package:neighboroo/constants.dart';
 import 'package:neighboroo/models/AssetElement.dart';
-import 'package:neighboroo/screens/Neighboroo/chat-screen.dart';
-import 'package:neighboroo/screens/Neighboroo/item-screen.dart';
-import 'package:neighboroo/screens/Neighboroo/transport-screen.dart';
-import 'package:neighboroo/screens/Neighboroo/service-screen.dart';
-import 'package:neighboroo/screens/Neighboroo/main-screen.dart';
+import 'package:neighboroo/screens/Surface/chat-screen.dart';
 
-import '../../Neighboroo.dart';
 
 class NbNavigation extends StatefulWidget {
   Color nbcolor;
@@ -25,7 +21,7 @@ class NavigationWidgetState extends State<NbNavigation> {
   static int selectedIndex = 2;
 
   void onItemTapped(int index) {
-    Neighboroo.currentindex = index;
+    Surface.currentindex = index;
     print(index);
     setState(() {
       selectedIndex = index;

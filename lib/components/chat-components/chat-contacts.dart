@@ -1,36 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:neighboroo/constants.dart';
-import 'package:neighboroo/models/Village.dart';
-
-// Container(
-//             padding: EdgeInsets.only(left: 10.0),
-//             child: Text(
-//               "Contacts:",
-//               textAlign: TextAlign.start,
-//               style: TextStyle(
-//                 color: text_color,
-//                 fontWeight: FontWeight.bold,
-//               ),
-//             ),
-//           ),
-//           ConstrainedBox(
-//             constraints: BoxConstraints(minHeight: 100.0, maxHeight: 500.0),
-//             child: Container(
-//               padding: EdgeInsets.all(1.0),
-//               child: Column(
-//                 children: <Widget>[ContactsNeighboroo(), ContactsNeighboroo(),ContactsNeighboroo()]),
-//               ),
-//           ),
+import 'package:neighboroo/models/Neighboroo.dart';
 
 class ContactsNeighboroo extends StatefulWidget {
-  
   @override
-  _ContactsNeighborooState createState() => _ContactsNeighborooState(testvillage);
+  _ContactsNeighborooState createState() => _ContactsNeighborooState(testNeighboroo);
 }
 
 class _ContactsNeighborooState extends State<ContactsNeighboroo> {
-  Village l;
-  _ContactsNeighborooState(this.l);
+  Neighboroo nb;
+  _ContactsNeighborooState(this.nb);
   
   @override
   Widget build(BuildContext context) {
@@ -53,7 +32,7 @@ class _ContactsNeighborooState extends State<ContactsNeighboroo> {
               child: ClipRRect(
                 borderRadius: BorderRadius.all(Radius.circular(3)),
                 child: Image(
-                image: AssetImage(l.picture),          
+                image: AssetImage(nb.picture),
                 width: 100,
                 height: 100,
                 fit: BoxFit.cover
@@ -63,14 +42,14 @@ class _ContactsNeighborooState extends State<ContactsNeighboroo> {
             Positioned(
               top: 15,
               left: 125,
-              child: Text(l.name,style: TextStyle(color: text_color, fontWeight: FontWeight.bold))
+              child: Text(nb.name,style: TextStyle(color: text_color, fontWeight: FontWeight.bold))
             ),
             Positioned(
               top: 15,
               left: 200,
               child: ConstrainedBox(
                 constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width * 0.45, maxHeight: 55),
-                child: Text(l.description,style: TextStyle(color: text_color, fontWeight: FontWeight.normal)))
+                child: Text(nb.description,style: TextStyle(color: text_color, fontWeight: FontWeight.normal)))
             ),
             Positioned(
               bottom: 8,

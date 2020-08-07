@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:neighboroo/Neighboroo.dart';
-import 'package:neighboroo/components/general-category-components/chat-element.dart';
+import 'package:neighboroo/Surface.dart';
+import 'package:neighboroo/components/general-components/chat-element.dart';
 import 'package:neighboroo/constants.dart';
+import 'package:neighboroo/models/Neighboroo.dart';
 
 class NbChatRecents extends StatefulWidget {
   
@@ -11,7 +12,7 @@ class NbChatRecents extends StatefulWidget {
 }
 
 class _NbChatRecentsState extends State<NbChatRecents> {
-  List<NbChatElement> nbStateChatElements = Neighboroo.getNbChatRecentsElements();
+  List<NbChatElement> nbStateChatElements = nbChatContactElements;
   
   // NbChatElement nbe = nbStateChatElements[6];
   
@@ -55,10 +56,8 @@ class _NbChatRecentsState extends State<NbChatRecents> {
                 itemBuilder: (context,i){
                   nbStateChatElements[i].ignoreaction = () =>{ setState(()=>{nbStateChatElements.remove(nbStateChatElements[i])})};
                   nbStateChatElements[i].respondaction =()=>{ print("dadsfadsf")};
-                  
-                  Neighboroo.setnbChatElements(nbStateChatElements);
-                  print(i.toString());
-                  print(Neighboroo.getNbChatRecentsElements());
+                  nbChatContactElements = nbStateChatElements;
+                  // Neighboroo.setnbChatElements(nbStateChatElements);
                   return nbStateChatElements[i];
                 }
                 

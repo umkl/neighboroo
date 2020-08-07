@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:neighboroo/components/main-screen-components/feed.dart';
-import 'package:neighboroo/components/main-screen-components/village.dart';
-import 'package:neighboroo/components/general-category-components/nav.dart';
+import 'package:neighboroo/components/main-components/feed.dart';
+import 'package:neighboroo/components/main-components/neighboroo.dart';
 import 'package:neighboroo/constants.dart';
 
 class NbMainScreen extends StatefulWidget {
-  static Feed feed = Feed();
+  static NbFeed feed = NbFeed();
   Color colortheme = bg;
   @override
   _MainScreenState createState() => _MainScreenState();
@@ -28,12 +27,12 @@ class _MainScreenState extends State<NbMainScreen>{
               controller: _controller,
               padding: EdgeInsets.all(1.0),
               children: <Widget>[
-                VillageMain(imagePath: 'assets/images/nb-village.jpg'),
-                VillageMain(imagePath: 'assets/images/nb-village.jpg'),
-                VillageMain(imagePath: 'assets/images/nb-village.jpg'),
-                VillageMain(imagePath: 'assets/images/nb-village.jpg'),
-                VillageMain(imagePath: 'assets/images/nb-village.jpg'),
-                AddVillage(),
+                NbNeighborooMain(imagePath: 'assets/images/nb-village.jpg'),
+                NbNeighborooMain(imagePath: 'assets/images/nb-village.jpg'),
+                NbNeighborooMain(imagePath: 'assets/images/nb-village.jpg'),
+                NbNeighborooMain(imagePath: 'assets/images/nb-village.jpg'),
+                NbNeighborooMain(imagePath: 'assets/images/nb-village.jpg'),
+                NbAddNeighborooMain(),
                 Container(
                   width: 50.0,
                   height: 10.0,

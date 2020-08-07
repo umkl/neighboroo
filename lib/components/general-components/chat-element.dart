@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:neighboroo/components/chat-screen-components/chat-create.dart';
-import 'package:neighboroo/components/general-category-components/button.dart';
-import 'package:neighboroo/components/main-screen-components/feed.dart';
+import 'package:neighboroo/components/general-components/button.dart';
 import 'package:neighboroo/constants.dart';
 import 'package:neighboroo/models/AssetElement.dart';
 import 'package:neighboroo/models/User.dart';
@@ -13,8 +11,6 @@ class NbChatElement extends StatefulWidget {
   final String message;
   var respondaction;
   var ignoreaction;
-
-  
 
   NbChatElement(this.id, this.user, this.datetime, this.message,{this.respondaction,this.ignoreaction, Key key}): super(key: key);
 

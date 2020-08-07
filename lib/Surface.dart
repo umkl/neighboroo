@@ -1,60 +1,48 @@
 import 'package:flutter/material.dart';
-import 'package:neighboroo/components/general-category-components/chat-element.dart';
-import 'package:neighboroo/components/general-category-components/head.dart';
-import 'package:neighboroo/components/general-category-components/user.dart';
-import 'package:neighboroo/components/general-category-components/village.dart';
+import 'package:neighboroo/components/general-components/chat-element.dart';
+import 'package:neighboroo/components/general-components/drawer.dart';
+import 'package:neighboroo/components/general-components/head.dart';
+import 'package:neighboroo/components/general-components/neighboroo.dart';
 import 'package:neighboroo/constants.dart';
 import 'package:neighboroo/models/AssetElement.dart';
-import 'package:neighboroo/screens/Neighboroo/chat-screen.dart';
-import 'package:neighboroo/screens/Neighboroo/main-screen.dart';
+import 'package:neighboroo/models/Neighboroo.dart';
+import 'package:neighboroo/models/User.dart';
+import 'package:neighboroo/screens/Surface/chat-screen.dart';
+import 'package:neighboroo/screens/Surface/main-screen.dart';
+import 'components/general-components/user.dart';
 
-import 'models/Village.dart';
-
-
-
-
-class Neighboroo extends StatefulWidget {
-  //villages
-  
-  //chat elements
-  static List<NbChatElement> nbChatRecentsElements = [
-    NbChatElement(1, user, DateTime.now(), "bepsn"),
-    NbChatElement(2, user, DateTime.now(), "bepsn1"),
-    NbChatElement(3, user, DateTime.now(), "bepsn2"),
-    NbChatElement(4, user, DateTime.now(), "bepsn2"),
-    NbChatElement(5, user, DateTime.now(), "bepsn2"),
-    NbChatElement(6, user, DateTime.now(), "bepsn2"),
-  ];
-
-  static List<Widget> nbChatContactElements = [
-    NbVillage(Village("Pfaffenhofen","spostn",picture: "assets/images/nb-village.jpg")),
-    NbUser(),
-    NbVillage(Village("Pfaffenhofen","spostn",picture: "assets/images/nb-village.jpg")),
-  ];
-
-  static List getNbChatContactElements(){
-    return nbChatContactElements;
-  }
-
-  static List getNbChatRecentsElements(){
-    return nbChatRecentsElements;  
-  } 
-
-  static void setnbChatElements(List<NbChatElement> ls){
-      nbChatRecentsElements = ls;
-  } 
-
+class Surface extends StatefulWidget {
+  User user;
   static int currentindex = 2;
+  
+  Surface({this.user});
+
+
+
+  
+
+  // static List getNbChatContactElements(){
+  //   return nbChatContactElements;
+  // }
+
+  // static List getNbChatRecentsElements(){
+  //   return nbChatRecentsElements;  
+  // } 
+
+  // static void setnbChatElements(List<NbChatElement> ls){
+  //     nbChatRecentsElements = ls;
+  // } 
+
   @override
   _NeighborooState createState() => _NeighborooState(currentindex);
 }
 
-class _NeighborooState extends State<Neighboroo> {
+class _NeighborooState extends State<Surface> {
   int currentindex;
   _NeighborooState(this.currentindex);
     
     void onItemTapped(int index) {
-    Neighboroo.currentindex = index;
+    Surface.currentindex = index;
     print(index);
     setState(() {
       currentindex = index;
@@ -63,6 +51,7 @@ class _NeighborooState extends State<Neighboroo> {
 
   @override
   Widget build(BuildContext context) {
+
     Color ColorReturn(){
       switch (currentindex) {
         case 0:
@@ -104,15 +93,14 @@ class _NeighborooState extends State<Neighboroo> {
         default:
       }
     }
-
     return Scaffold(
+      backgroundColor: bg,
       appBar: PreferredSize(
-            preferredSize: Size.fromHeight(60.0),
-            child: NbHead(headcolor: ColorReturn(), searchtext: SearchTextReturn(),),
-         ),
-      endDrawer: Drawer(child: Text("data"),),
+        preferredSize: Size.fromHeight(60.0),
+        child: NbHead(headcolor: ColorReturn(), searchtext: SearchTextReturn(),),
+      ),
+      endDrawer: NbDrawer(),
       body: screens.elementAt(currentindex),
-
       bottomNavigationBar: BottomAppBar(
       elevation: 0,
       color: ColorReturn(),
@@ -144,34 +132,8 @@ class _NeighborooState extends State<Neighboroo> {
                   child: AssetElement('assets/icons/nb-icon-work-1.png'),
                   onTap: () => onItemTapped(4)),
             ]),
-        ),      
-    ),
+        ),
+      ),
     ); 
   }
-
 }
-
-
-
-
-
-
-
-
-
-    // switch (currentindex) {
-    //   case 0:
-    //     screens.elementAt(currentindex);
-    //     break;
-    //   case 1:
-        
-    //     break;
-    //   case 2:
-    //     break;
-    //   case 3:
-    //     break;
-    //   case 4:
-    //     break;
-    //   default:
-    //     return Container(child: Text("this site wasnt found"));
-    // }

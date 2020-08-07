@@ -1,18 +1,15 @@
 import 'dart:collection';
-
 import 'package:flutter/material.dart';
-import 'package:neighboroo/Neighboroo.dart';
-import 'package:neighboroo/components/general-category-components/button.dart';
-import 'package:neighboroo/components/chat-screen-components/ChatType.dart';
-import 'package:neighboroo/components/chat-screen-components/chat-contacts.dart';
-import 'package:neighboroo/components/chat-screen-components/chat-create-components/chat-create-event.dart';
-import 'package:neighboroo/components/chat-screen-components/chat-create-components/chat-create-message.dart';
-import 'package:neighboroo/components/chat-screen-components/chat-create-components/chat-create-news.dart';
-import 'package:neighboroo/components/chat-screen-components/chat-create.dart';
-import 'package:neighboroo/components/chat-screen-components/chat-recents.dart';
-import 'package:neighboroo/components/general-category-components/headline.dart';
+import 'package:neighboroo/Surface.dart';
+import 'package:neighboroo/components/chat-components/ChatType.dart';
+import 'package:neighboroo/components/chat-components/chat-create-event.dart';
+import 'package:neighboroo/components/chat-components/chat-create-message.dart';
+import 'package:neighboroo/components/chat-components/chat-create-news.dart';
+import 'package:neighboroo/components/chat-components/chat-create.dart';
+import 'package:neighboroo/components/chat-components/chat-recents.dart';
+import 'package:neighboroo/components/general-components/headline.dart';
 import 'package:neighboroo/models/AssetElement.dart';
-import 'package:neighboroo/models/Village.dart';
+import 'package:neighboroo/models/Neighboroo.dart';
 import 'package:neighboroo/constants.dart';
 import 'package:neighboroo/models/User.dart';
 
@@ -31,9 +28,6 @@ class _NbChatScreenState extends State<NbChatScreen> {
   //values
   ChatType screenType = ChatType.main;
   NbChatCreateBar ncb;
-
-  //main
-
   WidgetMarker selectedWidgetMarker = WidgetMarker.graph;
 
   @override
@@ -102,7 +96,6 @@ class _NbChatScreenState extends State<NbChatScreen> {
     super.initState();
     ncb = NbChatCreateBar();
   }
-
   //getter methods
 
   Widget getNbMainChatScreen() {
@@ -121,9 +114,7 @@ class _NbChatScreenState extends State<NbChatScreen> {
       ),
     );
   }
-
   //setter methods
-
 }
 
 class NbChatScreenHeader extends StatelessWidget {
