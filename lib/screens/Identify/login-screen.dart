@@ -29,7 +29,7 @@ class _NbLoginState extends State<NbLogin> {
     String username = usernameTextController.text;
     String password = passwordTextController.text;
 
-    var url = "http://localhost/Neighboroo-localtest/registration.php";
+    var url = "http://localhost/Neighboroo-localtest/login.php";
     var response = await http.post(url, body: jsonEncode({'username': username, 'password': password}));
     print(response.body);
     Map<String, dynamic> message = jsonDecode(response.body);
