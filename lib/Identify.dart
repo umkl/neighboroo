@@ -2,79 +2,73 @@ import 'package:flutter/material.dart';
 import 'package:neighboroo/constants.dart';
 import 'package:neighboroo/database/database.dart';
 import 'package:neighboroo/models/User.dart';
-
 //backend
 import 'dart:convert';
 import 'dart:io';
-
 import 'package:http/http.dart' as http;
 import 'package:neighboroo/screens/Identify/login-screen.dart';
 
 class Identify extends StatefulWidget{
   _IdentifyState createState() => _IdentifyState();
-
 }
 
 class _IdentifyState extends State<Identify>{
-  bool visible = false;
+  // bool visible = false;
 
-  final usernameController = TextEditingController();
-  final passwordController = TextEditingController();
+  // final usernameController = TextEditingController();
+  // final passwordController = TextEditingController();
   
-  Future userLogin() async{
-    setState(() {
-      visible = true;
-  });  
+  // Future userLogin() async{
+  //   setState(() {
+  //     visible = true;
+  // });  
 
-  String username = usernameController.text;
-  String password = passwordController.text;
+  // String username = usernameController.text;
+  // String password = passwordController.text;
 
-  var url = 'http://127.0.0.1/Neighboroo-localtest/registration.php';
-  var data = {'username': username,'password': password};
-  var response = await http.post(url, body: jsonEncode(data));
-  print(response.body);
+  // var url = 'http://127.0.0.1/Neighboroo-localtest/registration.php';
+  // var data = {'username': username,'password': password};
+  // var response = await http.post(url, body: jsonEncode(data));
+  // print(response.body);
 
+  // var message = response.body;
 
-  var message = response.body;
-
-  
-
-  if(message == 'Login Matched'){
-    print("seas");
-    setState(() {
-      visible = false;
-    });
-  Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) => ProfileScreen(username: usernameController.text))
-  );
-    }else if(message=='worked'){
-      print("worked");
-    }else if(message=='not worked'){
-      print("not working");
-    }
-    else{
-      setState(() {
-        visible = false;
-      });
-      showDialog(
-        context: context,
-        builder: (BuildContext context){
-          return AlertDialog(
-            title: new Text(message),
-            actions: <Widget>[
-              FlatButton(
-                child: new Text("Ok"),
-                onPressed: (){
-                  Navigator.of(context).pop();
-                }
-              )
-            ],
-          );
-        }
-      );
-    }
-  }
+  // if(message == 'Login Matched'){
+  //   print("seas");
+  //   setState(() {
+  //     visible = false;
+  //   });
+  // Navigator.push(
+  //   context,
+  //   MaterialPageRoute(builder: (context) => ProfileScreen(username: usernameController.text))
+  // );
+  //   }else if(message=='worked'){
+  //     print("worked");
+  //   }else if(message=='not worked'){
+  //     print("not working");
+  //   }
+  //   else{
+  //     setState(() {
+  //       visible = false;
+  //     });
+  //     showDialog(
+  //       context: context,
+  //       builder: (BuildContext context){
+  //         return AlertDialog(
+  //           title: new Text(message),
+  //           actions: <Widget>[
+  //             FlatButton(
+  //               child: new Text("Ok"),
+  //               onPressed: (){
+  //                 Navigator.of(context).pop();
+  //               }
+  //             )
+  //           ],
+  //         );
+  //       }
+  //     );
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -241,7 +235,7 @@ class _NbIdentifyRegisterInputState extends State<NbIdentifyRegisterInput> {
               color: green,
               textColor: text_color,
               onPressed: (){
-                var nbNewUser = User(this.username,"zonzi", "michl", "ungar", "spost@mail","ramading15","kirchheim", "österreich",this.password);
+                var nbNewUser = testUser;
                 NbDatabaseProivder.db.newUser(nbNewUser);
               },
             ),

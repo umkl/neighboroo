@@ -13,25 +13,9 @@ import 'components/general-components/user.dart';
 
 class Surface extends StatefulWidget {
   User user;
+  Surface({@required this.user});
+
   static int currentindex = 2;
-  
-  Surface({this.user});
-
-
-
-  
-
-  // static List getNbChatContactElements(){
-  //   return nbChatContactElements;
-  // }
-
-  // static List getNbChatRecentsElements(){
-  //   return nbChatRecentsElements;  
-  // } 
-
-  // static void setnbChatElements(List<NbChatElement> ls){
-  //     nbChatRecentsElements = ls;
-  // } 
 
   @override
   _NeighborooState createState() => _NeighborooState(currentindex);
@@ -49,10 +33,7 @@ class _NeighborooState extends State<Surface> {
     });
   }
 
-  @override
-  Widget build(BuildContext context) {
-
-    Color ColorReturn(){
+  Color ColorReturn(){
       switch (currentindex) {
         case 0:
           return NbChatScreen().colortheme;
@@ -72,7 +53,6 @@ class _NeighborooState extends State<Surface> {
         default:
       }
     }
-
     String SearchTextReturn(){
       switch (currentindex) {
         case 0:
@@ -93,46 +73,51 @@ class _NeighborooState extends State<Surface> {
         default:
       }
     }
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: bg,
+
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(60.0),
         child: NbHead(headcolor: ColorReturn(), searchtext: SearchTextReturn(),),
       ),
+
       endDrawer: NbDrawer(),
+
       body: screens.elementAt(currentindex),
+
       bottomNavigationBar: BottomAppBar(
-      elevation: 0,
-      color: ColorReturn(),
-      child: Container(
-        margin: EdgeInsets.all(10.0),
-        height: 65.0,
-        decoration: BoxDecoration(
-          color: box_color,
-          borderRadius: BorderRadius.all(Radius.circular(7)),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: <Widget>[
-              InkWell(
-                  child: AssetElement('assets/icons/nb-icon-chat-light-1.png'),
-                  onTap: () => {onItemTapped(0)}),
-              InkWell(
-                  child: AssetElement('assets/icons/nb-icon-items-1.png'),
-                  onTap: () => onItemTapped(1)),
-              InkWell(
-                  child: AssetElement('assets/icons/nb-icon-home-light.png',
-                      padding: 8.0),
-                  onTap: () => onItemTapped(2)),
-              InkWell(
-                  child:
-                      AssetElement('assets/icons/nb-icon-transport-1.png'),
-                  onTap: () => onItemTapped(3)),
-              InkWell(
-                  child: AssetElement('assets/icons/nb-icon-work-1.png'),
-                  onTap: () => onItemTapped(4)),
-            ]),
-        ),
+        elevation: 0,
+        color: ColorReturn(),
+        child: Container(
+          margin: EdgeInsets.all(10.0),
+          height: 65.0,
+          decoration: BoxDecoration(
+            color: box_color,
+            borderRadius: BorderRadius.all(Radius.circular(7)),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                InkWell(
+                    child: AssetElement('assets/icons/nb-icon-chat-light-1.png'),
+                    onTap: () => {onItemTapped(0)}),
+                InkWell(
+                    child: AssetElement('assets/icons/nb-icon-items-1.png'),
+                    onTap: () => onItemTapped(1)),
+                InkWell(
+                    child: AssetElement('assets/icons/nb-icon-home-light.png',
+                        padding: 8.0),
+                    onTap: () => onItemTapped(2)),
+                InkWell(
+                    child: AssetElement('assets/icons/nb-icon-transport-1.png'),
+                    onTap: () => onItemTapped(3)),
+                InkWell(
+                    child: AssetElement('assets/icons/nb-icon-work-1.png'),
+                    onTap: () => onItemTapped(4)),
+              ]),
+          ),
       ),
     ); 
   }

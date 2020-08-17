@@ -104,9 +104,8 @@ class _NbSellElementState extends State<NbSellElement> {
                                 
                                 constraints: BoxConstraints(maxWidth: 130.0),
                                 child: Center(
-                                  child: Text(this.itemnameS?? "item by " + this.userS.name, 
+                                  child: Text(this.itemnameS?? "item by " + this.userS.nickname, 
                                     style: TextStyle(color: text_color,
-                                      
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
@@ -123,7 +122,7 @@ class _NbSellElementState extends State<NbSellElement> {
                           children: <Widget>[
                             Container(
                               child: Text(
-                                userS.name,
+                                userS.nickname,
                                 style: TextStyle(
                                   color: text_color,
                                   fontWeight: FontWeight.bold,

@@ -1,6 +1,3 @@
-select *
-from nbNeighborooUsers
-right join nbUsers
-on nbUsers.nickname = nbNeighborooUsers.nbUsers_nickname;
-
-
+SELECT * FROM nbUsers;
+-- INSERT INTO nbUsers 
+-- VALUES('user','firstname','lastname','email','pw','descr................... ... . .. . . ... .. ..');

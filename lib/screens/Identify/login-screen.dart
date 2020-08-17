@@ -25,27 +25,28 @@ class _NbLoginState extends State<NbLogin> {
     setState(() {
       visible = true;
     });
-
     String username = usernameTextController.text;
     String password = passwordTextController.text;
-
+    // var url = backendpath + "login.php";
     var url = "http://localhost/Neighboroo-localtest/login.php";
+
     var response = await http.post(url, body: jsonEncode({'username': username, 'password': password}));
     print(response.body);
-    Map<String, dynamic> message = jsonDecode(response.body);
+    Map<String, dynamic> responseAssoc = jsonDecode(response.body);
     var cmessage = "Login Matched";
-
+    print(responseAssoc["description"]);
     // var message = jsonDecode(response.body);
-    if(message["message"]=="Login Matched"){
-      User u = new User();
+    if(responseAssoc["message"]=="Login Matched"){
+      User u = new User(nickname: responseAssoc["nickname"],firstname: responseAssoc["firstname"],lastname: responseAssoc["lastname"],email: responseAssoc["email"],password: responseAssoc["password"],description: responseAssoc["description"]);
       
       setState(() {
         visible = false;
       });
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => Surface())
+        MaterialPageRoute(builder: (context) => Surface(user: u))
       );
+
     }else{
       setState(() {
         visible = false;

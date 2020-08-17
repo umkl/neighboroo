@@ -11,6 +11,10 @@ import 'package:neighboroo/screens/Surface/service-screen.dart';
 import 'package:neighboroo/screens/Surface/share-screen.dart';
 import 'package:neighboroo/screens/Surface/transport-screen.dart';
 
+//BACKEND
+const backendpath = "http://localhost/Neighboroo-localtest";
+
+//FRONTEND
 
 //color pallete
 List<Widget> nbChatContactElements = [
@@ -38,7 +42,6 @@ const button_green  = Color(0xFFAACC00);
 // const red  = Color(0xFFEF5359);
 // const red  = Color(0xFFEF5359);
 
-
 const box_color = Color(0x80D2D2D2);
 const text_color = Color(0xFFFFFFFF);
 const hint_text_color = Color(0x80FFFFFF);
@@ -59,9 +62,8 @@ const outer_padding = 10.0;
 const inner_padding = 10.0;
 
 //test object palete
-User testUser = User("mike", "normal dude" ,"michael", "ungar", "mikgmail.com", "this.address", "this.city", "this.country", "this.password");
+User testUser = User(nickname:"mike",firstname: "Michael", lastname:"Ungar",email: "mail@mail.com", password: "fpass98", description: "i duno... description");
 Neighboroo testNeighboroo = new Neighboroo("frizging", "Fritzging is a really cool gegend so do not underestimate itFritzging is a really cool gegend so do not underestimate it.Fritzging is a really cool gegend so do not underestimate it", picture: "assets/images/nb-village.jpg");
-
 
 List<Widget> screens = <Widget>[
     NbChatScreen(),
