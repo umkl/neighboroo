@@ -83,7 +83,7 @@ class _NeighborooState extends State<Surface> {
         child: NbHead(headcolor: ColorReturn(), searchtext: SearchTextReturn(),),
       ),
 
-      endDrawer: NbDrawer(),
+      endDrawer: NbDrawer(u: this.widget.user),
 
       body: screens.elementAt(currentindex),
 

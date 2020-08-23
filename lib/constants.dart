@@ -28,6 +28,7 @@ List<Widget> nbChatContactElements = [
   ];
 
 const bg  = Color(0xFFEEEEEE);
+const bgdark = Color(0xFF7D7D7D);
 const globe = Color(0x90797578);
 
 const green  = Color(0xFFAACC00);

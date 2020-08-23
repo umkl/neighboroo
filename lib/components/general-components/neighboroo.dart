@@ -8,10 +8,10 @@ class NbNeighboroo extends StatefulWidget {
   NbNeighboroo(this.neighboroo);
   
   @override
-  _NbVillageState createState() => _NbVillageState();
+  _NbNeighborooState createState() => _NbNeighborooState();
 }
 
-class _NbVillageState extends State<NbNeighboroo> {
+class _NbNeighborooState extends State<NbNeighboroo> {
   @override
   Widget build(BuildContext context) {
     return Container(

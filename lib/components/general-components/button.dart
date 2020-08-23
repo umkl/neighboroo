@@ -7,7 +7,8 @@ class NbButton extends StatefulWidget {
   Color buttoncolor;
   double buttonheight;
   double buttonwidth;
-  NbButton({this.buttonwidth, this.buttonheight,this.buttonname,this.buttonfunction,this.buttoncolor});
+  double buttonmargin;
+  NbButton({this.buttonmargin, this.buttonwidth, this.buttonheight,this.buttonname,this.buttonfunction,this.buttoncolor});
 
   @override
   _NbButtonState createState() => _NbButtonState(buttonheight: this.buttonheight, buttonwidth: this.buttonwidth, buttonname: this.buttonname, buttonfunction: this.buttonfunction, buttoncolor: buttoncolor);
@@ -19,12 +20,15 @@ class _NbButtonState extends State<NbButton> {
   Color buttoncolor;
   double buttonheight;
   double buttonwidth;
+  // double buttonpadding;
+  double buttonmargin;
 
-  _NbButtonState({this.buttonwidth, this.buttonheight,this.buttonname,this.buttonfunction,this.buttoncolor});
+  _NbButtonState({this.buttonmargin,this.buttonwidth, this.buttonheight,this.buttonname,this.buttonfunction,this.buttoncolor});
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: EdgeInsets.all(this.widget.buttonmargin ?? 0),
       width: buttonwidth,
       height: buttonheight,
       child: DecoratedBox(
